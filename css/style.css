@@ -2237,3 +2237,35 @@ div.privacy_policy {
 /* ==================== */
 /* END popup_service */
 /* ==================== */
+
+
+
+
+
+
+.popup_mission_conference {
+  max-height: 90vh; /* Установите подходящую высоту */
+  overflow-y: auto; /* Вертикальная прокрутка */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.scrollable-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Расстояние между элементами */
+}
+
+.payment_info {
+  color: white; /* Белый текст */
+  font-size: 14px; /* Уменьшенный кегль */
+  margin-bottom: 15px; /* Отступ снизу для разделения */
+  line-height: 1.5; /* Интерлиньяж для читаемости */
+}
+
+.privacy_policy {
+  color: white; /* Белый текст */
+  font-size: 16px; /* Немного больший кегль, чем у информации о чеке */
+  margin-top: 10px;
+}

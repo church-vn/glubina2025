@@ -501,8 +501,8 @@
           <div class="container">
 
             <div class="section-header">
-              <h2>Остались вопросы? Или хочешь послужить?</h2>
-                  <h3 class="sub-heading">Жми на плюс</h3>
+              <h2>Если у вас остались вопросы</h2>
+                  <h3 class="sub-heading">Нажмите на плюс</h3>
             </div>
 
             <div class="row justify-content-center">
@@ -589,7 +589,8 @@
           </div>
           <div class="col-auto registration_button">
             <button type="submit" class="open-popup_mission_conference">Регистрация</button><br>
-            <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Оплатить участие в конференции</button>
+            <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Оплатить участие в конференции</button><br>
+            <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Отправить чек</button>
           </div>
         </section>
 
@@ -673,29 +674,64 @@
 
 <!-- Форма регистрации popup -->
 <div class="popup__bg_mission_conference">
-  <form action="#" class="popup_mission_conference" id="registrationForm" name="submit-to-google-sheet">
+  <form action="#" class="popup_mission_conference scrollable-form" id="registrationForm" name="submit-to-google-sheet">
     <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
     <br>
     <img src="img/close.svg" class="close-popup_mission_conference">
+    
     <label>
       <input id="sendName_mission_conference" type="text" name="name" required>
       <div class="label__text">Ваше имя</div>
     </label>
+    
     <label>
       <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
       <div class="label__text">Ваша фамилия</div>
     </label>
+    
     <label>
       <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
       <div class="label__text">Ваш телефон</div>
     </label>
+    
+    <label>
+      <input id="sendCity_mission_conference" type="text" name="city" required>
+      <div class="label__text">Из какого вы города</div>
+    </label>
+    
+    <label>
+      <input id="sendChurch_mission_conference" type="text" name="church" required>
+      <div class="label__text">Название вашей церкви</div>
+    </label>
+    
+    <label>
+      <input id="sendPastorName_mission_conference" type="text" name="pastor-name" required>
+      <div class="label__text">Имя и фамилия вашего пастора</div>
+    </label>
+    
+    <label>
+      <input id="sendMinistry_mission_conference" type="text" name="ministry" required>
+      <div class="label__text">Ваше служение в церкви</div>
+    </label>
+    
+  <div class="payment_info" style="color: white; font-size: 14px; line-height: 1.5;">
+  Регистрация считается завершённой только после предоставления чека 📄.<br>
+  Оплатить участие в конференции 💳 и загрузить чек можно 
+  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">здесь (откроется в новой вкладке)</a>.<br>
+  После оплаты необходимо отправить чек. <br>
+  Для отправки чека нажмите кнопку <br><b>“Отправить чек”</b> ⬆️.
+</div>
+
+
     <div class="privacy_policy">
-      Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
+      Нажимая на кнопку "Регистрация", вы даете согласие на обработку персональных данных и соглашаетесь с
       <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
     </div>
-    <button type="submit" id="sendButton_mission_conference" class="about-btn close_through_submit_mission_conference">Отправить</button>
+    
+    <button type="submit" id="sendButton_mission_conference" class="about-btn close_through_submit_mission_conference">Регистрация</button>
   </form>
 </div>
+
 
 <script>
  document.getElementById('registrationForm').addEventListener('submit', function (event) {
