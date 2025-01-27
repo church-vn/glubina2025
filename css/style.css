@@ -83,13 +83,13 @@ h6 {
 }
 
 .back-to-top:focus {
-  background: #e0072f;
+  background: #0ca5b9;
   color: #fff;
   outline: none;
 }
 
 .back-to-top:hover {
-  background: #e0072f;
+  background: #0ca5b9;
   color: #fff;
 }
 
@@ -1456,7 +1456,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #buy-tickets .card .btn:hover {
-  background-color: #e0072f;
+  background-color: #0ca5b9;
 }
 
 #buy-tickets #buy-ticket-modal input,
@@ -1475,7 +1475,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #buy-tickets #buy-ticket-modal .btn:hover {
-  background-color: #e0072f;
+  background-color: #0ca5b9;
 }
 
 /*--------------------------------------------------------------
@@ -1579,7 +1579,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form button[type="submit"]:hover {
-  background: #e0072f;
+  background: #0ca5b9;
 }
 
 /*--------------------------------------------------------------
@@ -1718,7 +1718,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-newsletter input[type="submit"]:hover {
-  background: #e0072f;
+  background: #0ca5b9;
 }
 
 #footer .copyright {
