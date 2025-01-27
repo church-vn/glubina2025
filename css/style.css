@@ -10,14 +10,14 @@ body {
 }
 
 a {
-  color: #f82249;
+  color: #00bcd4;
   transition: 0.5s;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: #f8234a;
+  color: #0ca5b9;
   outline: none;
   text-decoration: none;
 }
@@ -66,7 +66,7 @@ h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
   width: 40px;
   height: 40px;
@@ -108,7 +108,7 @@ h6 {
   display: block;
   width: 60px;
   height: 5px;
-  background: #f82249;
+  background: #00bcd4;
   bottom: 0;
   left: calc(50% - 25px);
 }
@@ -169,7 +169,7 @@ h6 {
 }
 
 #header #logo h1 span {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #header #logo h1 a,
@@ -282,7 +282,7 @@ h6 {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #f82249;
+  background-color: #00bcd4;
   visibility: hidden;
   transition: all 0.3s ease-in-out 0s;
 }
@@ -296,10 +296,10 @@ h6 {
 
 .nav-menu li.buy-tickets a {
   color: #fff;
-  background: #f82249;
+  background: #00bcd4;
   padding: 7px 22px;
   border-radius: 50px;
-  border: 2px solid #f82249;
+  border: 2px solid #00bcd4;
   transition: all ease-in-out 0.3s;
   font-weight: 500;
   margin-left: 8px;
@@ -340,7 +340,7 @@ h6 {
 }
 
 .nav-menu ul li:hover > a {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 
@@ -407,7 +407,7 @@ h6 {
 }
 
 #mobile-nav ul li a:hover {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #mobile-nav ul li li {
@@ -424,11 +424,11 @@ h6 {
 }
 
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #mobile-nav ul .menu-item-active {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #mobile-body-overly {
@@ -475,7 +475,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 #intro:before {
   content: "";
-  background: rgba(6, 12, 34, 0.8);
+  background: rgba(6, 12, 34, 0.5);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -515,7 +515,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro h1 span {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #intro p {
@@ -527,7 +527,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #intro .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#f82249 50%, rgba(101, 111, 150, 0.15) 52%);
+  background: radial-gradient(#00bcd4 50%, rgba(101, 111, 150, 0.15) 52%);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -574,7 +574,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro .play-btn:hover::after {
-  border-left: 15px solid #f82249;
+  border-left: 15px solid #00bcd4;
   -webkit-transform: scale(20);
   transform: scale(20);
 }
@@ -612,11 +612,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #f82249;
+  border: 2px solid #00bcd4;
 }
 
 #intro .about-btn:hover {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 
@@ -634,14 +634,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #f82249;
+  border: 2px solid #00bcd4;
   width: 100%;
   text-align: center;
   background-color: transparent;
 }
 
 .popup__bg_mission_conference .about-btn:hover {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 
@@ -661,14 +661,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #f82249;
+  border: 2px solid #00bcd4;
   width: 100%;
   text-align: center;
   background-color: transparent;
 }
 
 .popup__bg_service .about-btn:hover {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 /* end для второй формы на service */
@@ -714,14 +714,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #f82249;
+  border: 2px solid #00bcd4;
   width: 100%;
   text-align: center;
   background-color: transparent;
   margin: 10px auto;
 }
 .registration_buttons .about-btn:hover {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 
@@ -735,17 +735,17 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 50px;
   transition: 0.5s;
   line-height: 1;
-  color: #f82249;
+  color: #00bcd4;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #f82249;
+  border: 2px solid #00bcd4;
   width: 100%;
   text-align: center;
   background-color: transparent;
   margin: 10px auto;
 }
 .registration_buttons_tickets .about-btn:hover {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 
@@ -869,7 +869,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #speakers .speaker .details a:hover {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #speakers .speaker:hover .details {
@@ -904,7 +904,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #speakers-details .details .social a:hover {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 
@@ -949,7 +949,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #schedule .nav-tabs a.active {
-  background-color: #f82249;
+  background-color: #00bcd4;
   color: #fff;
 }
 
@@ -1128,7 +1128,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #hotels a:hover {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #hotels .stars {
@@ -1178,7 +1178,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #gallery .owl-dot.active {
-  background-color: #f82249;
+  background-color: #00bcd4;
 }
 
 #gallery .gallery-carousel .owl-stage-outer {
@@ -1186,7 +1186,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #gallery .gallery-carousel .center {
-  border: 6px solid #f82249;
+  border: 6px solid #00bcd4;
   margin: -10px;
   box-sizing: content-box;
   padding: 4px;
@@ -1275,7 +1275,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #faq #faq-list a.collapse {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #faq #faq-list a.collapsed {
@@ -1292,7 +1292,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #subscribe {
   padding: 150px 60px;
-  background: url(../img/subscribe-bg.jpg) center center no-repeat;
+  background: url(../img/intro-bg.jpg) center center no-repeat;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -1328,7 +1328,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 0;
   padding: 9px 25px;
   cursor: pointer;
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
   transition: all 0.3s ease;
   outline: none;
@@ -1339,7 +1339,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #subscribe button:hover {
   background: none;
-  border: solid #f82249;
+  border: solid #00bcd4;
   width: 250px;
 }
 
@@ -1387,7 +1387,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 0;
   padding: 9px 25px;
   cursor: pointer;
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
   transition: all 0.3s ease;
   outline: none;
@@ -1398,7 +1398,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #subscribe_1 button:hover {
   background: none;
-  border: solid #f82249;
+  border: solid #00bcd4;
   width: 250px;
 }
 
@@ -1450,7 +1450,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 50px;
   padding: 10px 40px;
   transition: all 0.2s;
-  background-color: #f82249;
+  background-color: #00bcd4;
   border: 0;
   color: #fff;
 }
@@ -1469,7 +1469,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 50px;
   padding: 10px 40px;
   transition: all 0.2s;
-  background-color: #f82249;
+  background-color: #00bcd4;
   border: 0;
   color: #fff;
 }
@@ -1495,7 +1495,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 48px;
   display: inline-block;
   margin-bottom: 10px;
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #contact .contact-info address,
@@ -1517,7 +1517,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .contact-info a:hover {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #contact .contact-address,
@@ -1527,8 +1527,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form #sendmessage {
-  color: #f82249;
-  border: 1px solid #f82249;
+  color: #00bcd4;
+  border: 1px solid #00bcd4;
   display: none;
   text-align: center;
   padding: 15px;
@@ -1569,7 +1569,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form button[type="submit"] {
-  background: #f82249;
+  background: #00bcd4;
   border: 0;
   padding: 10px 40px;
   color: #fff;
@@ -1641,7 +1641,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #f82249;
+  background: #00bcd4;
   color: #fff;
 }
 
@@ -1652,7 +1652,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-transform: uppercase;
   position: relative;
   padding-bottom: 12px;
-  border-bottom: 2px solid #f82249;
+  border-bottom: 2px solid #00bcd4;
 }
 
 #footer .footer-top .footer-links {
@@ -1667,7 +1667,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 5px;
-  color: #f82249;
+  color: #00bcd4;
   font-size: 18px;
 }
 
@@ -1685,7 +1685,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #f82249;
+  color: #00bcd4;
 }
 
 #footer .footer-top .footer-contact {
@@ -1707,7 +1707,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-newsletter input[type="submit"] {
-  background: #f82249;
+  background: #00bcd4;
   border: 0;
   width: 35%;
   padding: 6px 0;
@@ -1885,7 +1885,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 
 .heading_main {
-  color: #f82249 !important;
+  color: #00bcd4 !important;
 }
 .support_qr {
   width: 100% !important;
@@ -1997,14 +1997,14 @@ iframe.main_map {
 }
 
 .popup_mission_conference input:focus {
-    border: 1px solid #f82249 !important;
-    box-shadow: 0 0 10px #f82249;
+    border: 1px solid #00bcd4 !important;
+    box-shadow: 0 0 10px #00bcd4;
     background: transparent !important;
     transition: 0.5s all;
 }
 
 .popup_mission_conference input:focus + .label__text {
-    color: #f82249;
+    color: #00bcd4;
 }
 
 .popup_mission_conference textarea {
@@ -2021,15 +2021,15 @@ iframe.main_map {
 }
 
 .popup_mission_conference textarea:focus {
-    border-bottom: 1px solid #f82249;
-    border: 1px solid #f82249 !important;
-    box-shadow: 0 0 10px #f82249;
+    border-bottom: 1px solid #00bcd4;
+    border: 1px solid #00bcd4 !important;
+    box-shadow: 0 0 10px #00bcd4;
     background: transparent !important;
     transition: 0.5s all;
 }
 
 .popup_mission_conference textarea:focus + .label__text {
-    color: #f82249;
+    color: #00bcd4;
 }
 
 .popup_mission_conference button {
@@ -2040,7 +2040,7 @@ iframe.main_map {
     justify-content: center;
     color: #fff;
     font-size: 14px;
-    background: #f82249;
+    background: #00bcd4;
     cursor: pointer;
     transition: 0.5s all;
     line-height: 1.75em;
@@ -2174,14 +2174,14 @@ div.privacy_policy {
 }
 
 .popup_service input:focus {
-    border: 1px solid #f82249 !important;
-    box-shadow: 0 0 10px #f82249;
+    border: 1px solid #00bcd4 !important;
+    box-shadow: 0 0 10px #00bcd4;
     background: transparent !important;
     transition: 0.5s all;
 }
 
 .popup_service input:focus + .label__text {
-    color: #f82249;
+    color: #00bcd4;
 }
 
 /* Стиль для textarea */
@@ -2199,15 +2199,15 @@ div.privacy_policy {
 }
 
 .popup_service textarea:focus {
-    border-bottom: 1px solid #f82249;
-    border: 1px solid #f82249 !important;
-    box-shadow: 0 0 10px #f82249;
+    border-bottom: 1px solid #00bcd4;
+    border: 1px solid #00bcd4 !important;
+    box-shadow: 0 0 10px #00bcd4;
     background: transparent !important;
     transition: 0.5s all;
 }
 
 .popup_service textarea:focus + .label__text {
-    color: #f82249;
+    color: #00bcd4;
 }
 
 /* Кнопка отправки */
@@ -2219,7 +2219,7 @@ div.privacy_policy {
     justify-content: center;
     color: #fff;
     font-size: 14px;
-    background: #f82249;
+    background: #00bcd4;
     cursor: pointer;
     transition: 0.5s all;
     line-height: 1.75em;
