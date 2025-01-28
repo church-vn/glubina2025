@@ -1336,6 +1336,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 50px;
   width: 200px;
 }
+@media screen and (max-width: 375px) {
+  #subscribe button {
+    font-size: 12px;
+    width: 170px;
+  }
+}
 
 #subscribe button:hover {
   background: none;
@@ -2007,6 +2013,10 @@ iframe.main_map {
     color: #00bcd4;
 }
 
+.popup_mission_conference input:focus + .calendar-icon {
+  filter: drop-shadow(1px 1px 1px #00bcd4);
+}
+
 .popup_mission_conference textarea {
     resize: none;
     width: 100%;
@@ -2073,10 +2083,9 @@ textarea::placeholder {
 
 
 div.privacy_policy {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   color: white !important;
-  margin-bottom: 10px;
 }
 
 #contact input {
@@ -2269,3 +2278,99 @@ div.privacy_policy {
   font-size: 16px; /* Немного больший кегль, чем у информации о чеке */
   margin-top: 10px;
 }
+
+
+
+
+
+
+
+
+
+/* Форма регистрации. Иконка календаря */
+.date-container {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .date-container input[type="date"] {
+    width: 100%;
+  }
+
+  .calendar-icon {
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 67%;
+    transform: translateY(-50%);
+    color: #00bcd4 !important; /* Цвет иконки */
+    cursor: pointer;
+  }
+
+
+
+
+/* блокировка прокрутки при открытом popup */
+body.lock-scroll {
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+/* загрзука чека/файла в форме */
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.file-upload input[type="file"] {
+  display: none; /* Скрываем стандартное поле */
+}
+
+.file-upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.file-upload-button:hover {
+  background-color: #00acd4;
+}
+
+.file-upload-name {
+  font-size: 14px;
+  color: #cfd0d3;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px; /* Ограничиваем длину имени файла */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

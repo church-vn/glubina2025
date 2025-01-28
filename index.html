@@ -679,49 +679,76 @@
     <br>
     <img src="img/close.svg" class="close-popup_mission_conference">
     
-    <label>
-      <input id="sendName_mission_conference" type="text" name="name" required>
-      <div class="label__text">Ваше имя</div>
-    </label>
-    
-    <label>
-      <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
-      <div class="label__text">Ваша фамилия</div>
-    </label>
-    
-    <label>
-      <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
-      <div class="label__text">Ваш телефон</div>
-    </label>
-    
-    <label>
-      <input id="sendCity_mission_conference" type="text" name="city" required>
-      <div class="label__text">Из какого вы города</div>
-    </label>
-    
-    <label>
-      <input id="sendChurch_mission_conference" type="text" name="church" required>
-      <div class="label__text">Название вашей церкви</div>
-    </label>
-    
-    <label>
-      <input id="sendPastorName_mission_conference" type="text" name="pastor-name" required>
-      <div class="label__text">Имя и фамилия вашего пастора</div>
-    </label>
-    
-    <label>
-      <input id="sendMinistry_mission_conference" type="text" name="ministry" required>
-      <div class="label__text">Ваше служение в церкви</div>
-    </label>
-    
-  <div class="payment_info" style="color: white; font-size: 14px; line-height: 1.5;">
-  Регистрация считается завершённой только после предоставления чека 📄.<br>
-  Оплатить участие в конференции 💳 и загрузить чек можно 
-  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">здесь (откроется в новой вкладке)</a>.<br>
-  После оплаты необходимо отправить чек. <br>
-  Для отправки чека нажмите кнопку <br><b>“Отправить чек”</b> ⬆️.
-</div>
+<label>
+  <input id="sendName_mission_conference" type="text" name="name" required>
+  <div class="label__text">Ваше имя</div>
+</label>
 
+<label>
+  <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
+  <div class="label__text">Ваша фамилия</div>
+</label>
+
+<label>
+  <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
+  <div class="label__text">Ваш телефон</div>
+</label>
+
+<label>
+  <input id="sendCity_mission_conference" type="text" name="city" required>
+  <div class="label__text">Из какого вы города</div>
+</label>
+
+<label>
+  <input id="sendChurch_mission_conference" type="text" name="church" required>
+  <div class="label__text">Название вашей церкви</div>
+</label>
+
+<label>
+  <input id="sendPastorName_mission_conference" type="text" name="pastor-name" required>
+  <div class="label__text">ФИО пастора вашей церкви</div>
+</label>
+
+<label>
+  <input id="sendMinistry_mission_conference" type="text" name="ministry" required>
+  <div class="label__text">Ваше служение в церкви</div>
+</label>
+
+<label class="date-container">
+  <input id="arrivalDate_mission_conference" type="date" name="arrival-date" max="2025-12-31" value="2025-05-08" required>
+  <span class="calendar-icon" onclick="document.getElementById('arrivalDate_mission_conference').showPicker()"><img class="calendar-icon" src="img/calendar.svg"></span>
+  <div class="label__text">День приезда</div>
+</label>
+
+<label class="date-container">
+  <input id="departureDate_mission_conference" type="date" name="departure-date" max="2025-12-31" value="2025-05-10" required>
+  <span class="calendar-icon" onclick="document.getElementById('departureDate_mission_conference').showPicker()"><img class="calendar-icon" src="img/calendar.svg"></span>
+  <div class="label__text">День отъезда</div>
+</label>
+
+    
+ <div class="payment_info" style="color: white; font-size: 14px; line-height: 1.5;">
+  Регистрация считается завершённой только после предоставления чека 📄.<br><br>
+  Несмотря на необходимость оплаты и предоставления чека, пожалуйста, заполните эту форму регистрации полностью и нажмите на кнопку <b>“Регистрация”</b> 📋✔️. <br>Это поможет нам зафиксировать вашу заявку заранее и подготовить всё для вашего участия. 🙌✨<br><br>
+  
+  Чтобы завершить регистрацию: <br>
+  1️⃣ <b>Заполните эту форму регистрации полностью</b> 📝 и нажмите кнопку <b>“Регистрация”</b>.  
+  Это важно для предварительного закрепления вашего участия.<br><br>
+  
+  2️⃣ <b>Оплатите участие в конференции</b> 💳.<br>
+  Сделать это можно, перейдя по ссылке:<br>
+  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
+  
+  3️⃣ <b>После оплаты загрузите чек</b> 📤.<br>
+  Чек можно отправить на странице:<br>
+  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
+  
+  <small>После того, как вы совершили оплату и загрузили чек, повторно заполнять данную форму регистрации не нужно! ✅</small><br><br>
+  
+  Отправить чек необходимо до <b>25 апреля 2025 года</b> ⏳.<br><br>
+  
+  Спасибо за понимание и внимание к деталям! Мы с нетерпением ждём вас на конференции! 🙌✨
+</div>
 
     <div class="privacy_policy">
       Нажимая на кнопку "Регистрация", вы даете согласие на обработку персональных данных и соглашаетесь с
@@ -963,6 +990,31 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
        
       });
       </script>
+
+
+      <script>
+      // Функция для преобразования первой буквы в заглавную
+      function capitalizeFirstLetter(input) {
+        const words = input.value.split(" ").map(word => {
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        });
+        input.value = words.join(" ");
+      }
+
+      // Привязка обработчика к полям ввода
+      document.getElementById("sendName_mission_conference").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+      document.getElementById("sendSecondName_mission_conference").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+       document.getElementById("sendPastorName_mission_conference").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+    </script>
 
 
 

@@ -96,17 +96,26 @@
                 <h5 class="card-title text-muted text-uppercase text-center">Стоимость участия в конференции</h5>
                 <h6 class="card-price text-center">3000₽</h6>
                 <hr>
-                <ul class="fa-ul">
+                <!-- <ul class="fa-ul">
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Участие в конференции</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Кофе-брейки</li>
-                </ul>
+                </ul> -->
                  <small>Оплатить по QR-коду</small>
                 <img class="support_qr" src="img/qrcod_support.png" alt="">
                 <small class="hide_on_desktop">или нажмите на кнопку</small>
-                <hr style="margin-top: 10px !important;">
-                <div class="text-center">
+                <br>
+                <!-- <div style="margin-top: 10px;" class="text-center">
                     <button onclick="location.href='https://platiqr.ru/?uuid=1000056752'" type="button" class="btn support_btn" data-toggle="modal" data-target="" data-ticket-type="standard-access">Оплатить</button>
+                </div> -->
+                <div style="width: 100%;" class="registration_buttons_tickets support_btn">
+                  <a href="https://platiqr.ru/?uuid=1000056752" class="about-btn">Оплатить</a>
                 </div>
+
+                <hr style="margin-top: 10px !important;">
+                <div style="width: 100%;" class="registration_buttons_tickets">
+                  <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Отправить чек</a>
+                </div>
+                <hr style="margin-top: 10px !important;">
                 <br>
                 <small>По всем вопросам:</small>
                 <p><a href="#"><u>Telegram-канал Glubina</u></a><br><br>
@@ -130,60 +139,43 @@
 
 <!-- Форма регистрации popup -->
 <div class="popup__bg_mission_conference">
-  <form action="#" class="popup_mission_conference" id="registrationForm" name="submit-to-google-sheet">
+  <form action="#" class="popup_mission_conference" id="registrationForm" name="submit-to-google-sheet" enctype="multipart/form-data">
     <h4 style="color: white;">Отправить чек <br>об оплате участия в конференции 📋</h4>
     <br>
     <img src="img/close.svg" class="close-popup_mission_conference">
+    
     <label>
-      <input id="sendName_mission_conference" type="text" name="name" required>
+      <input id="receiptName_mission_conference" type="text" name="name" required>
       <div class="label__text">Ваше имя</div>
     </label>
     <label>
-      <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
+      <input id="receiptSecondName_mission_conference" type="text" name="second-name" required>
       <div class="label__text">Ваша фамилия</div>
     </label>
     <label>
-      <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
+      <input id="receiptTel_mission_conference" type="tel" name="phone" class="form-input" required>
       <div class="label__text">Ваш телефон</div>
     </label>
+
+  <label class="file-upload">
+  <input id="receiptFile_mission_conference" type="file" name="receipt-file" accept=".jpg,.jpeg,.png,.pdf" required>
+  <span class="file-upload-button">Загрузить чек</span>
+  <span id="file-name" class="file-upload-name">Файл не выбран</span>
+  </label>
+
     <div class="privacy_policy">
       Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
       <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
     </div>
-    <button type="submit" id="sendButton_mission_conference" class="about-btn close_through_submit_mission_conference">Отправить</button>
+    <button type="submit" id="sendReceiptButton_mission_conference" class="about-btn close_through_submit_mission_conference">Отправить</button>
   </form>
 </div>
 
-<script>
- document.getElementById('registrationForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Отмена стандартного действия формы
 
-    // Собираем данные из формы
-    const formData = {
-        name: document.getElementById('sendName_mission_conference').value,
-        secondName: document.getElementById('sendSecondName_mission_conference').value,
-        
-        // Очищаем номер телефона от всех символов, кроме цифр
-        phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, '') // Убираем все нецифровые символы
-    };
 
-    // URL вашего Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwNo283oIEwYBJlKLigsMT4vkHtUebarg40bftes7ADQ7yKUdj0EipvVlyU7YhA0eyD5g/exec';
-
-    // Отправка данных
-    fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert('Регистрация прошла успешно! ✅');
-        document.getElementById('registrationForm').reset(); // Очистка формы
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-        alert('Слабое соединение с интернетом ⚠️📶. Попробуйте позже ⏳🔄');
-    });
+<script type="text/javascript">document.getElementById('receiptFile_mission_conference').addEventListener('change', function () {
+  const fileName = this.files[0]?.name || 'Файл не выбран';
+  document.getElementById('file-name').textContent = fileName;
 });
 </script>
 
@@ -194,134 +186,13 @@
 
 
 
-
-
-<!-- Вторая форма регистрации popup -->
-<!-- <div class="popup__bg_service">
-  <form action="#" class="popup_service" id="serviceForm" name="submit-to-google-sheet">
-    <h4 style="color: white;">Хочу послужить <br>на конференции 🧹🛠️🔧🔌</h4>
-    <br>
-    <img src="img/close.svg" class="close-popup_service">
-    <label>
-      <input id="sendName_service" type="text" name="name_service" required>
-      <div class="label__text">Ваше имя</div>
-    </label>
-    <label>
-      <input id="sendSecondName_service" type="text" name="second_name_service" required>
-      <div class="label__text">Ваша фамилия</div>
-    </label>
-    <label>
-      <input id="sendTel_service" type="tel" name="phone_service" class="form-input" required>
-      <div class="label__text">Ваш телефон</div>
-    </label>
-    <div class="privacy_policy">
-      Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
-      <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
-    </div>
-    <button type="submit" id="sendButton_service" class="about-btn close_through_submit_service">Отправить</button>
-  </form>
-</div> -->
-
-<script>
-/// Для второй формы регистрации
-document.getElementById('serviceForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Отмена стандартного действия формы
-
-    // Собираем данные из формы
-    const formData = {
-        name: document.getElementById('sendName_service').value,
-        secondName: document.getElementById('sendSecondName_service').value,
-        
-        // Очищаем номер телефона от всех символов, кроме цифр
-        phone: document.getElementById('sendTel_service').value.replace(/\D/g, '') // Убираем все нецифровые символы
-    };
-
-    // Проверка на пустые поля (если одно из полей пустое, форма не отправляется)
-    if (!formData.name || !formData.secondName || !formData.phone) {
-        alert("Пожалуйста, заполните все поля!");
-        return; // Если поля пустые, не отправляем данные
-    }
-
-    // URL вашего Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyIP5jxCGqhonZnXYAR1uhWjJlf48TWCAWcI_I2cgeF6ZjRBRp641NtvfIpJTwqLid4/exec';
-
-    // Отправка данных
-    fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert('Регистрация прошла успешно! ✅');
-        document.getElementById('serviceForm').reset(); // Очистка формы
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-        alert('Слабое соединение с интернетом ⚠️📶. Попробуйте позже ⏳🔄');
-    });
-});
-</script>
 
 
     <!--==========================
       Footer
     ============================-->
     <footer id="footer">
-      <!-- <div class="footer-top">
-        <div class="container">
-          <div class="row">
-
-            <div class="col-lg-3 col-md-6 footer-info">
-              <img src="img/logo.png" alt="TheEvenet">
-              <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
-            </div>
-
-            <div class="col-lg-3 col-md-6 footer-links">
-              <h4>Useful Links</h4>
-              <ul>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
-              </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-6 footer-links">
-              <h4>Useful Links</h4>
-              <ul>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
-              </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-6 footer-contact">
-              <h4>Contact Us</h4>
-              <p>
-                A108 Adam Street <br>
-                New York, NY 535022<br>
-                United States <br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-
-              <div class="social-links">
-                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div> -->
-
+     
       <div class="container">
         <div class="copyright">
           &copy; Церковь <strong>"Слово Жизни"</strong>. Все права защищены
@@ -368,28 +239,35 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
       });
       </script>
 
+    <script>
+      // Функция для преобразования первой буквы в заглавную
+      function capitalizeFirstLetter(input) {
+        const words = input.value.split(" ").map(word => {
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        });
+        input.value = words.join(" ");
+      }
+
+      // Привязка обработчика к полям ввода
+      document.getElementById("receiptName_mission_conference").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+      document.getElementById("receiptSecondName_mission_conference").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+    </script>
+
       <!-- Маска для телефонного номера -->
     <script src="js/jquerymaskedinputmin.js"></script>
-    <script>
-      $("input[name='phone_service']").mask("+7(999) 999-9999");
-      
-      $(".bezvalue_wrap").html("<input class='bezvalue'  type='text' name='bezvalue' value='' />");  
-       $(".bezvalue").val("Dolly Duck");
-       $(".bezvalue").hide();
-       
-       
-       $('.datatitle').on('click',function(){
-      var mysuperdata = $(this).attr('data-title');
-      $('#titlezagalovor').html(mysuperdata);
-       
-      });
-      </script>
 
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <!-- <script src="contactform/contactform.js"></script> -->
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/form_tg.js"></script>
 </body>
 
 </html>

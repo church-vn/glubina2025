@@ -152,7 +152,12 @@ jQuery(document).ready(function( $ ) {
 
 
 
-// popup форма для отрпавки заявки
+
+
+
+
+
+// popup форма для отправки заявки
 
 // popup
 let popupBg_mission_conference = document.querySelector('.popup__bg_mission_conference');
@@ -170,23 +175,36 @@ function checkFormValidity() {
     return sendName && sendSecondName && sendTel; // Проверяем все поля
 }
 
+// Функция для блокировки прокрутки
+function lockScroll() {
+    document.body.classList.add('lock-scroll');
+}
+
+// Функция для разблокировки прокрутки
+function unlockScroll() {
+    document.body.classList.remove('lock-scroll');
+}
+
 openPopupButtons_mission_conference.forEach((button) => { // Перебираем все кнопки
     button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
         e.preventDefault(); // Предотвращаем дефолтное поведение браузера
         popupBg_mission_conference.classList.add('active'); // Добавляем класс 'active' для фона
         popup_mission_conference.classList.add('active'); // И для самого окна
+        lockScroll(); // Блокируем прокрутку
     })
 });
 
 closePopupButton_mission_conference.addEventListener('click',() => { // Вешаем обработчик на крестик
     popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
     popup_mission_conference.classList.remove('active'); // И с окна
+    unlockScroll(); // Разблокируем прокрутку
 });
 
 document.addEventListener('click', (e) => { // Вешаем обработчик на весь документ
-    if(e.target === popupBg_mission_conference) { // Если цель клика - фот, то:
+    if(e.target === popupBg_mission_conference) { // Если цель клика - фон, то:
         popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
         popup_mission_conference.classList.remove('active'); // И с окна
+        unlockScroll(); // Разблокируем прокрутку
     }
 });
 
@@ -195,6 +213,7 @@ closePopupButtonSubmit_mission_conference.addEventListener('click', () => {
     if (checkFormValidity()) { // Если все поля заполнены
         popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
         popup_mission_conference.classList.remove('active'); // И с окна
+        unlockScroll(); // Разблокируем прокрутку
     }
     // Если поля не заполнены, форма не закрывается и уведомление не показывается
 });
@@ -221,12 +240,23 @@ function checkFormValidity_service() {
     return sendName && sendSecondName && sendTel;
 }
 
+// Функция для блокировки прокрутки
+function lockScroll() {
+    document.body.classList.add('lock-scroll');
+}
+
+// Функция для разблокировки прокрутки
+function unlockScroll() {
+    document.body.classList.remove('lock-scroll');
+}
+
 // Открытие попапа при клике на кнопку
 openPopupButtons_service.forEach((button) => { // Перебираем все кнопки
     button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
         e.preventDefault(); // Предотвращаем дефолтное поведение браузера
         popupBg_service.classList.add('active'); // Добавляем класс 'active' для фона
         popup_service.classList.add('active'); // И для самого окна
+        lockScroll(); // Блокируем прокрутку
     });
 });
 
@@ -234,6 +264,7 @@ openPopupButtons_service.forEach((button) => { // Перебираем все к
 closePopupButton_service.addEventListener('click', () => { 
     popupBg_service.classList.remove('active'); // Убираем активный класс с фона
     popup_service.classList.remove('active'); // И с окна
+    unlockScroll(); // Разблокируем прокрутку
 });
 
 // Закрытие попапа при клике за пределами попапа
@@ -241,6 +272,7 @@ document.addEventListener('click', (e) => {
     if (e.target === popupBg_service) { // Если цель клика - это фон попапа
         popupBg_service.classList.remove('active'); // Убираем активный класс с фона
         popup_service.classList.remove('active'); // И с окна
+        unlockScroll(); // Разблокируем прокрутку
     }
 });
 
@@ -250,9 +282,18 @@ closePopupButtonSubmit_service.addEventListener('click', () => {
     if (checkFormValidity_service()) { // Если все поля заполнены
         popupBg_service.classList.remove('active'); // Убираем активный класс с фона
         popup_service.classList.remove('active'); // И с окна
+        unlockScroll(); // Разблокируем прокрутку
     }
     // Если поля не заполнены, форма не закрывается и уведомление не показывается
 });
+
+
+
+
+
+
+
+
 
 
 
