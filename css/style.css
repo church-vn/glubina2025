@@ -674,6 +674,32 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* end для второй формы на service */
 
 
+/* для формы отправки чека */
+#receiptForm .about-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px 0;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #00bcd4;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+}
+#receiptForm .about-btn:hover {
+  background: #00bcd4;
+  color: #fff;
+}
+/* end для формы отправки чека */
+
 
 .registration_buttons {
   position: relative;
@@ -2056,6 +2082,7 @@ iframe.main_map {
     line-height: 1.75em;
     font-weight: 300;
     font-family: 'Source Sans Pro';
+    border-radius: 5px;
 }
 
 .popup_mission_conference button:hover {
@@ -2234,7 +2261,7 @@ div.privacy_policy {
     line-height: 1.75em;
     font-weight: 300;
     font-family: 'Source Sans Pro';
-    border-radius: 5px; /* Добавлено закругление */
+    border-radius: 5px;
 }
 
 .popup_service button:hover {
@@ -2246,6 +2273,12 @@ div.privacy_policy {
 /* ==================== */
 /* END popup_service */
 /* ==================== */
+
+
+
+
+
+
 
 
 
@@ -2342,7 +2375,7 @@ body.lock-scroll {
   color: white;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 0.5em;
   cursor: pointer;
   transition: 0.3s ease;
   width: 100%;
@@ -2374,3 +2407,139 @@ body.lock-scroll {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================== */
+/* popup_receipt */
+/* ==================== */
+.popup__bg_receipt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(38, 31, 31, 0.714);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: 0.5s all;
+    z-index: 99999;
+    backdrop-filter: blur(4px) !important;
+}
+
+.popup__bg_receipt.active { 
+    opacity: 1; 
+    pointer-events: all;
+    transition: 0.5s all;
+}
+
+.popup_receipt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); 
+    background: #000000c1;
+    width: 400px;
+    padding: 25px;
+    transition: 0.5s all;
+}
+
+.popup_receipt.active { 
+    transform: translate(-50%, -50%) scale(1); 
+    transition: 0.5s all;
+}
+
+@media screen and (max-width: 470px) {
+    .popup_receipt.active {
+        width: 90% !important;
+    }
+}
+
+/* Для стилизации крестика закрытия */
+.close-popup_receipt {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Стилизация меток и полей формы */
+.popup_receipt label {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.popup_receipt .label__text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #cfd0d3;
+    margin-bottom: 5px;
+}
+
+/* Стиль для input */
+.popup_receipt input {
+    height: 45px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #cfd0d3 !important;
+    border-radius: 0.5em;
+    padding: 18px;
+    background: transparent !important;
+    transition: 0.5s all;
+    color: white !important;
+}
+
+.popup_receipt input:focus {
+    border: 1px solid #00bcd4 !important;
+    box-shadow: 0 0 10px #00bcd4;
+    background: transparent !important;
+    transition: 0.5s all;
+}
+
+.popup_receipt input:focus + .label__text {
+    color: #00bcd4;
+}
+
+/* Стиль для textarea */
+.popup_receipt textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    outline: none;
+    border: 1px solid #cfd0d3;
+    border-radius: 0.5em;
+    font-size: 18px;
+    padding: 10px;
+    background: transparent !important;
+    color: white !important;
+}
+
+.popup_receipt textarea:focus {
+    border-bottom: 1px solid #00bcd4;
+    border: 1px solid #00bcd4 !important;
+    box-shadow: 0 0 10px #00bcd4;
+    background: transparent !important;
+    transition: 0.5s all;
+}
+
+.popup_receipt textarea:focus + .label__text {
+    color: #00bcd4;
+}
+
+/* Кнопка отправки */
+
+/* ==================== */
+/* END popup_receipt */
+/* ==================== */

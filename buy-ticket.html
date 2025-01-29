@@ -10,7 +10,6 @@
   <meta property="og:image" content="img/intro-bg.jpg" />
   <!-- Favicons -->
   <link href="img/logo.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
@@ -30,23 +29,7 @@
   <link href="css/style.css" rel="stylesheet">
 
  
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" >
-     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-     m[i].l=1*new Date();
-     for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-     ym(96178830, "init", {
-          clickmap:true,
-          trackLinks:true,
-          accurateTrackBounce:true,
-          webvisor:true
-     });
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/96178830" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
 
 </head>
 
@@ -85,7 +68,7 @@
       <div class="container">
 
         <div class="section-header">
-          <h2>Оплата конференции</h2>
+          <h2>Оплата/Отправка чека</h2>
           <p>Добровольное пожертвование 3000₽</p>
         </div>
 
@@ -113,7 +96,7 @@
 
                 <hr style="margin-top: 10px !important;">
                 <div style="width: 100%;" class="registration_buttons_tickets">
-                  <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Отправить чек</a>
+                  <a href="" target="_blank" class="open-popup_receipt about-btn scrollto">Отправить чек</a>
                 </div>
                 <hr style="margin-top: 10px !important;">
                 <br>
@@ -130,35 +113,35 @@
       </div>
       <br>
    <div class="registration_buttons_tickets">
-      <a href="" target="_blank" class="open-popup_mission_conference about-btn scrollto">Отправить чек</a>
+      <a href="" target="_blank" class="open-popup_receipt about-btn scrollto">Отправить чек</a>
       <!-- <a href="" target="_blank" class="open-popup_service about-btn scrollto">Хочу послужить на конференции</a> -->
     </div>
 
 
     </section>
 
-<!-- Форма регистрации popup -->
-<div class="popup__bg_mission_conference">
-  <form action="#" class="popup_mission_conference" id="registrationForm" name="submit-to-google-sheet" enctype="multipart/form-data">
+<!-- Форма отправки чека popup -->
+<div class="popup__bg_receipt">
+  <form action="#" class="popup_receipt" id="receiptForm" name="" enctype="multipart/form-data">
     <h4 style="color: white;">Отправить чек <br>об оплате участия в конференции 📋</h4>
     <br>
-    <img src="img/close.svg" class="close-popup_mission_conference">
+    <img src="img/close.svg" class="close-popup_receipt">
     
     <label>
-      <input id="receiptName_mission_conference" type="text" name="name" required>
+      <input id="sendName_receipt" type="text" name="name" required>
       <div class="label__text">Ваше имя</div>
     </label>
     <label>
-      <input id="receiptSecondName_mission_conference" type="text" name="second-name" required>
+      <input id="sendSecondName_receipt" type="text" name="second-name" required>
       <div class="label__text">Ваша фамилия</div>
     </label>
     <label>
-      <input id="receiptTel_mission_conference" type="tel" name="phone" class="form-input" required>
+      <input id="sendTel_receipt" type="tel" name="phone" class="form-input" required>
       <div class="label__text">Ваш телефон</div>
     </label>
 
   <label class="file-upload">
-  <input id="receiptFile_mission_conference" type="file" name="receipt-file" accept=".jpg,.jpeg,.png,.pdf" required>
+  <input id="sendFile_receipt" type="file" name="receipt-file" accept=".jpg,.jpeg,.png,.pdf" required>
   <span class="file-upload-button">Загрузить чек</span>
   <span id="file-name" class="file-upload-name">Файл не выбран</span>
   </label>
@@ -167,13 +150,13 @@
       Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
       <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
     </div>
-    <button type="submit" id="sendReceiptButton_mission_conference" class="about-btn close_through_submit_mission_conference">Отправить</button>
+    <button type="submit" id="sendReceiptButton_receipt" class="about-btn close_through_submit_receipt">Отправить</button>
   </form>
 </div>
 
 
 
-<script type="text/javascript">document.getElementById('receiptFile_mission_conference').addEventListener('change', function () {
+<script type="text/javascript">document.getElementById('sendFile_receipt').addEventListener('change', function () {
   const fileName = this.files[0]?.name || 'Файл не выбран';
   document.getElementById('file-name').textContent = fileName;
 });
@@ -222,6 +205,12 @@
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 
+
+  <script>
+    
+  </script>
+
+
     <!-- Маска для телефонного номера -->
     <script src="js/jquerymaskedinputmin.js"></script>
     <script>
@@ -249,25 +238,20 @@
       }
 
       // Привязка обработчика к полям ввода
-      document.getElementById("receiptName_mission_conference").addEventListener("blur", function () {
+      document.getElementById("sendName_receipt").addEventListener("blur", function () {
         capitalizeFirstLetter(this);
       });
 
-      document.getElementById("receiptSecondName_mission_conference").addEventListener("blur", function () {
+      document.getElementById("sendSecondName_receipt").addEventListener("blur", function () {
         capitalizeFirstLetter(this);
       });
     </script>
 
-      <!-- Маска для телефонного номера -->
-    <script src="js/jquerymaskedinputmin.js"></script>
-
-  <!-- Contact Form JavaScript File -->
-  <!-- <script src="contactform/contactform.js"></script> -->
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/form_tg.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

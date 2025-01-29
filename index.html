@@ -589,7 +589,7 @@
           </div>
           <div class="col-auto registration_button">
             <button type="submit" class="open-popup_mission_conference">Регистрация</button><br>
-            <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Оплатить участие в конференции</button><br>
+            <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Оплатить участие / Отправить чек</button><br>
             <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Отправить чек</button>
           </div>
         </section>
@@ -740,7 +740,7 @@
   <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
   
   3️⃣ <b>После оплаты загрузите чек</b> 📤.<br>
-  Чек можно отправить на странице:<br>
+Загрузить и отправить чек можно на странице:<br>
   <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
   
   <small>После того, как вы совершили оплату и загрузили чек, повторно заполнять данную форму регистрации не нужно! ✅</small><br><br>
@@ -761,7 +761,7 @@
 
 
 <script>
- document.getElementById('registrationForm').addEventListener('submit', function (event) {
+  document.getElementById('registrationForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Отмена стандартного действия формы
 
     // Собираем данные из формы
@@ -770,11 +770,19 @@
         secondName: document.getElementById('sendSecondName_mission_conference').value,
         
         // Очищаем номер телефона от всех символов, кроме цифр
-        phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, '') // Убираем все нецифровые символы
+        phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, ''), // Убираем все нецифровые символы
+        
+        // Новые поля
+        city: document.getElementById('sendCity_mission_conference').value,
+        church: document.getElementById('sendChurch_mission_conference').value,
+        pastorName: document.getElementById('sendPastorName_mission_conference').value,
+        ministry: document.getElementById('sendMinistry_mission_conference').value,
+        arrivalDate: document.getElementById('arrivalDate_mission_conference').value,
+        departureDate: document.getElementById('departureDate_mission_conference').value
     };
 
     // URL вашего Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwNo283oIEwYBJlKLigsMT4vkHtUebarg40bftes7ADQ7yKUdj0EipvVlyU7YhA0eyD5g/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw3cELx4iweiZVBoVQz1oLroucgeqxBwB-Aade7NA9r7cuXKerU4hPDsG0hZ6AWfSsrPQ/exec';
 
     // Отправка данных
     fetch(scriptURL, {
@@ -790,8 +798,10 @@
         console.error('Ошибка:', error);
         alert('Слабое соединение с интернетом ⚠️📶. Попробуйте позже ⏳🔄');
     });
-});
+  });
 </script>
+
+
 
 
 
@@ -845,7 +855,7 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
     }
 
     // URL вашего Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyIP5jxCGqhonZnXYAR1uhWjJlf48TWCAWcI_I2cgeF6ZjRBRp641NtvfIpJTwqLid4/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbymBsOAwHss21w75RV63X2LCIvHOHXc8wzckf7S3fBNHaOz4we9ntKHQKvwvsZdPM3R/exec';
 
     // Отправка данных
     fetch(scriptURL, {
@@ -854,7 +864,7 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
     })
     .then(response => response.text())
     .then(data => {
-        alert('Регистрация прошла успешно! ✅');
+        alert('Ваша заявка отправлена! ✅');
         document.getElementById('serviceForm').reset(); // Очистка формы
     })
     .catch(error => {
@@ -1010,7 +1020,23 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
         capitalizeFirstLetter(this);
       });
 
-       document.getElementById("sendPastorName_mission_conference").addEventListener("blur", function () {
+      document.getElementById("sendPastorName_mission_conference").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+      document.getElementById("sendName_service").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+      document.getElementById("sendSecondName_service").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+      document.getElementById("sendCity_mission_conference").addEventListener("blur", function () {
+        capitalizeFirstLetter(this);
+      });
+
+      document.getElementById("sendChurch_mission_conference").addEventListener("blur", function () {
         capitalizeFirstLetter(this);
       });
 

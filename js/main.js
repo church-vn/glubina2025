@@ -155,8 +155,6 @@ jQuery(document).ready(function( $ ) {
 
 
 
-
-
 // popup форма для отправки заявки
 
 // popup
@@ -168,10 +166,10 @@ let closePopupButtonSubmit_mission_conference = document.querySelector('.close_t
 
 // Проверка на заполненность полей
 function checkFormValidity() {
-    let sendName = document.getElementById('sendName_mission_conference').value.trim();
-    let sendSecondName = document.getElementById('sendSecondName_mission_conference').value.trim();
-    let sendTel = document.getElementById('sendTel_mission_conference').value.trim();
-    
+    let sendName = document.getElementById('sendName_mission_conference')?.value.trim() || "";
+    let sendSecondName = document.getElementById('sendSecondName_mission_conference')?.value.trim() || "";
+    let sendTel = document.getElementById('sendTel_mission_conference')?.value.trim() || "";
+
     return sendName && sendSecondName && sendTel; // Проверяем все поля
 }
 
@@ -185,43 +183,47 @@ function unlockScroll() {
     document.body.classList.remove('lock-scroll');
 }
 
-openPopupButtons_mission_conference.forEach((button) => { // Перебираем все кнопки
-    button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
-        e.preventDefault(); // Предотвращаем дефолтное поведение браузера
-        popupBg_mission_conference.classList.add('active'); // Добавляем класс 'active' для фона
-        popup_mission_conference.classList.add('active'); // И для самого окна
-        lockScroll(); // Блокируем прокрутку
-    })
-});
+// Проверяем, существуют ли элементы, прежде чем вешать обработчики событий
+if (openPopupButtons_mission_conference) {
+    openPopupButtons_mission_conference.forEach((button) => { 
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (popupBg_mission_conference && popup_mission_conference) {
+                popupBg_mission_conference.classList.add('active');
+                popup_mission_conference.classList.add('active');
+                lockScroll();
+            }
+        });
+    });
+}
 
-closePopupButton_mission_conference.addEventListener('click',() => { // Вешаем обработчик на крестик
-    popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
-    popup_mission_conference.classList.remove('active'); // И с окна
-    unlockScroll(); // Разблокируем прокрутку
-});
+if (closePopupButton_mission_conference) {
+    closePopupButton_mission_conference.addEventListener('click', () => {
+        if (popupBg_mission_conference && popup_mission_conference) {
+            popupBg_mission_conference.classList.remove('active');
+            popup_mission_conference.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
 
-document.addEventListener('click', (e) => { // Вешаем обработчик на весь документ
-    if(e.target === popupBg_mission_conference) { // Если цель клика - фон, то:
-        popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
-        popup_mission_conference.classList.remove('active'); // И с окна
-        unlockScroll(); // Разблокируем прокрутку
+document.addEventListener('click', (e) => {
+    if (popupBg_mission_conference && e.target === popupBg_mission_conference) {
+        popupBg_mission_conference.classList.remove('active');
+        popup_mission_conference.classList.remove('active');
+        unlockScroll();
     }
 });
 
-// Обработчик кнопки отправки
-closePopupButtonSubmit_mission_conference.addEventListener('click', () => { 
-    if (checkFormValidity()) { // Если все поля заполнены
-        popupBg_mission_conference.classList.remove('active'); // Убираем активный класс с фона
-        popup_mission_conference.classList.remove('active'); // И с окна
-        unlockScroll(); // Разблокируем прокрутку
-    }
-    // Если поля не заполнены, форма не закрывается и уведомление не показывается
-});
-
-
-
-
-
+if (closePopupButtonSubmit_mission_conference) {
+    closePopupButtonSubmit_mission_conference.addEventListener('click', () => {
+        if (checkFormValidity() && popupBg_mission_conference && popup_mission_conference) {
+            popupBg_mission_conference.classList.remove('active');
+            popup_mission_conference.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
 
 // popup для второй формы на service
 let popupBg_service = document.querySelector('.popup__bg_service');
@@ -232,77 +234,112 @@ let closePopupButtonSubmit_service = document.querySelector('.close_through_subm
 
 // Проверка на заполненность полей
 function checkFormValidity_service() {
-    let sendName = document.getElementById('sendName_service').value.trim();
-    let sendSecondName = document.getElementById('sendSecondName_service').value.trim();
-    let sendTel = document.getElementById('sendTel_service').value.trim();
-    
-    // Проверяем все поля: если они не пустые, возвращаем true
+    let sendName = document.getElementById('sendName_service')?.value.trim() || "";
+    let sendSecondName = document.getElementById('sendSecondName_service')?.value.trim() || "";
+    let sendTel = document.getElementById('sendTel_service')?.value.trim() || "";
+
     return sendName && sendSecondName && sendTel;
 }
 
-// Функция для блокировки прокрутки
-function lockScroll() {
-    document.body.classList.add('lock-scroll');
-}
-
-// Функция для разблокировки прокрутки
-function unlockScroll() {
-    document.body.classList.remove('lock-scroll');
-}
-
-// Открытие попапа при клике на кнопку
-openPopupButtons_service.forEach((button) => { // Перебираем все кнопки
-    button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
-        e.preventDefault(); // Предотвращаем дефолтное поведение браузера
-        popupBg_service.classList.add('active'); // Добавляем класс 'active' для фона
-        popup_service.classList.add('active'); // И для самого окна
-        lockScroll(); // Блокируем прокрутку
+// Проверяем, существуют ли элементы
+if (openPopupButtons_service) {
+    openPopupButtons_service.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (popupBg_service && popup_service) {
+                popupBg_service.classList.add('active');
+                popup_service.classList.add('active');
+                lockScroll();
+            }
+        });
     });
-});
+}
 
-// Закрытие попапа при клике на крестик
-closePopupButton_service.addEventListener('click', () => { 
-    popupBg_service.classList.remove('active'); // Убираем активный класс с фона
-    popup_service.classList.remove('active'); // И с окна
-    unlockScroll(); // Разблокируем прокрутку
-});
+if (closePopupButton_service) {
+    closePopupButton_service.addEventListener('click', () => {
+        if (popupBg_service && popup_service) {
+            popupBg_service.classList.remove('active');
+            popup_service.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
 
-// Закрытие попапа при клике за пределами попапа
-document.addEventListener('click', (e) => { 
-    if (e.target === popupBg_service) { // Если цель клика - это фон попапа
-        popupBg_service.classList.remove('active'); // Убираем активный класс с фона
-        popup_service.classList.remove('active'); // И с окна
-        unlockScroll(); // Разблокируем прокрутку
+document.addEventListener('click', (e) => {
+    if (popupBg_service && e.target === popupBg_service) {
+        popupBg_service.classList.remove('active');
+        popup_service.classList.remove('active');
+        unlockScroll();
     }
 });
 
-// Обработчик кнопки отправки
-closePopupButtonSubmit_service.addEventListener('click', () => { 
-    // Проверяем, заполнены ли все поля
-    if (checkFormValidity_service()) { // Если все поля заполнены
-        popupBg_service.classList.remove('active'); // Убираем активный класс с фона
-        popup_service.classList.remove('active'); // И с окна
-        unlockScroll(); // Разблокируем прокрутку
+if (closePopupButtonSubmit_service) {
+    closePopupButtonSubmit_service.addEventListener('click', () => {
+        if (checkFormValidity_service() && popupBg_service && popup_service) {
+            popupBg_service.classList.remove('active');
+            popup_service.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+// popup для формы receipt
+let popupBg_receipt = document.querySelector('.popup__bg_receipt');
+let popup_receipt = document.querySelector('.popup_receipt');
+let openPopupButtons_receipt = document.querySelectorAll('.open-popup_receipt');
+let closePopupButton_receipt = document.querySelector('.close-popup_receipt');
+let closePopupButtonSubmit_receipt = document.querySelector('.close_through_submit_receipt');
+
+// Проверка на заполненность полей
+function checkFormValidity_receipt() {
+    let sendName_receipt = document.getElementById('sendName_receipt')?.value.trim() || "";
+    let sendSecondName_receipt = document.getElementById('sendSecondName_receipt')?.value.trim() || "";
+    let sendTel_receipt = document.getElementById('sendTel_receipt')?.value.trim() || "";
+
+    return sendName_receipt && sendSecondName_receipt && sendTel_receipt;
+}
+
+// Проверяем, существуют ли элементы
+if (openPopupButtons_receipt) {
+    openPopupButtons_receipt.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (popupBg_receipt && popup_receipt) {
+                popupBg_receipt.classList.add('active');
+                popup_receipt.classList.add('active');
+                lockScroll();
+            }
+        });
+    });
+}
+
+if (closePopupButton_receipt) {
+    closePopupButton_receipt.addEventListener('click', () => {
+        if (popupBg_receipt && popup_receipt) {
+            popupBg_receipt.classList.remove('active');
+            popup_receipt.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+document.addEventListener('click', (e) => {
+    if (popupBg_receipt && e.target === popupBg_receipt) {
+        popupBg_receipt.classList.remove('active');
+        popup_receipt.classList.remove('active');
+        unlockScroll();
     }
-    // Если поля не заполнены, форма не закрывается и уведомление не показывается
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if (closePopupButtonSubmit_receipt) {
+    closePopupButtonSubmit_receipt.addEventListener('click', () => {
+        if (checkFormValidity_receipt() && popupBg_receipt && popup_receipt) {
+            popupBg_receipt.classList.remove('active');
+            popup_receipt.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
 
 
 
