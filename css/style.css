@@ -2295,16 +2295,16 @@ div.privacy_policy {
   border-radius: 10px;
 }
 .popup_service {
-  max-height: 80vh; /* Установите подходящую высоту */
+  max-height: 90vh; /* Установите подходящую высоту */
   overflow-y: auto; /* Вертикальная прокрутка */
-  padding: 20px;
+  padding: 20px 20px 60px 20px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
 .popup_receipt {
-  max-height: 80vh; /* Установите подходящую высоту */
+  max-height: 90vh; /* Установите подходящую высоту */
   overflow-y: auto; /* Вертикальная прокрутка */
-  padding: 20px;
+  padding: 20px 20px 60px 20px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
