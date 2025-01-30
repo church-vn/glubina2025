@@ -2288,9 +2288,9 @@ div.privacy_policy {
 
 
 .popup_mission_conference {
-  max-height: 80vh; /* Установите подходящую высоту */
+  max-height: 90vh; /* Установите подходящую высоту */
   overflow-y: auto; /* Вертикальная прокрутка */
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
