@@ -1920,7 +1920,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #00bcd4 !important;
 }
 .support_qr {
-  width: 100% !important;
+  width: 70% !important;
+  margin: 0 auto;
+  display: block;
 }
 @media screen and (min-width: 996px) {
   .support_btn {
