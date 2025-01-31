@@ -7,6 +7,7 @@ const form = document.getElementById('receiptForm');
 const nameInput = document.getElementById('sendName_receipt');
 const secondNameInput = document.getElementById('sendSecondName_receipt');
 const telInput = document.getElementById('sendTel_receipt');
+const emailInput = document.getElementById('sendEmail_receipt'); // Поле Email
 const fileInput = document.getElementById('sendFile_receipt');
 
 // Обработчик отправки формы
@@ -16,7 +17,8 @@ form.addEventListener('submit', async (event) => {
     // Формируем сообщение
     const message = `Имя: ${nameInput.value.trim()}
 Фамилия: ${secondNameInput.value.trim()}
-Телефон: ${telInput.value.trim()}`;
+Телефон: ${telInput.value.trim()}
+Email: ${emailInput.value.trim()}`; // Добавлено поле Email
 
     try {
         for (const chatId of chatIds) {

@@ -173,6 +173,7 @@
 
     </section>
 
+
 <!-- Форма отправки чека popup -->
 <div class="popup__bg_receipt">
   <form action="#" class="popup_receipt" id="receiptForm" name="" enctype="multipart/form-data">
@@ -192,13 +193,18 @@
       <input id="sendTel_receipt" type="tel" name="phone" class="form-input" required>
       <div class="label__text">Номер телефона</div>
     </label>
+    <!-- Новое поле для ввода email -->
+    <label>
+      <input id="sendEmail_receipt" type="email" name="email" class="form-input" required>
+      <div class="label__text">Ваш Email</div>
+    </label>
 
-  <label class="file-upload">
-  <input id="sendFile_receipt" type="file" name="receipt-file" accept=".jpg,.jpeg,.png,.pdf" required>
-  <span class="file-upload-button">Загрузить чек</span>
-  <span id="file-name" class="file-upload-name">Файл не выбран</span>
-  </label>
-  <p id="error-message" style="color: red; display: none; font-size: 12px;">Файл слишком большой. Максимальный размер — 1 МБ.</p>
+    <label class="file-upload">
+      <input id="sendFile_receipt" type="file" name="receipt-file" accept=".jpg,.jpeg,.png,.pdf" required>
+      <span class="file-upload-button">Загрузить чек</span>
+      <span id="file-name" class="file-upload-name">Файл не выбран</span>
+    </label>
+    <p id="error-message" style="color: red; display: none; font-size: 12px;">Файл слишком большой. Максимальный размер — 1 МБ.</p>
 
     <div class="privacy_policy">
       Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
@@ -209,13 +215,13 @@
 </div>
 
 
-
+<!-- 
 <script type="text/javascript">document.getElementById('sendFile_receipt').addEventListener('change', function () {
   const fileName = this.files[0]?.name || 'Файл не выбран';
   document.getElementById('file-name').textContent = fileName;
 });
 </script>
-
+ -->
 
 
 
@@ -350,9 +356,58 @@
 
 
   <!-- Template Main Javascript File -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="js/form_tg.js"></script>
+  <!-- <script src="js/form_tg.js"></script> -->
   <script src="js/main.js"></script>
+  
+
+  <script>
+
+(function () {
+    // Инициализация EmailJS
+    emailjs.init("IXOvNqz-orTzVjuOd");
+
+    // Определение переменных формы
+    const form = document.getElementById('receiptForm');
+    const nameInput = document.getElementById('sendName_receipt');
+    const secondNameInput = document.getElementById('sendSecondName_receipt');
+    const telInput = document.getElementById('sendTel_receipt');
+    const emailInput = document.getElementById('sendEmail_receipt');
+
+    // Обработчик отправки формы
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        // Сбор данных из формы
+        const formData = {
+            name: nameInput.value.trim(),
+            secondName: secondNameInput.value.trim(),
+            tel: telInput.value.trim(),
+            email: emailInput.value.trim(), // Email пользователя
+        };
+
+        // Отправка через EmailJS
+        try {
+            await emailjs.send('service_lf7yvx3', 'template_xssceje', {
+                user_name: formData.name,
+                user_secondname: formData.secondName,
+                user_tel: formData.tel,
+                to_email: formData.email, // Письмо пойдет на email пользователя
+            });
+
+            alert('Письмо успешно отправлено!');
+            form.reset();
+        } catch (error) {
+            console.error('Ошибка отправки:', error);
+            alert('Произошла ошибка при отправке письма.');
+        }
+    });
+})();
+
+
+  </script>
+  
 </body>
 
 </html>

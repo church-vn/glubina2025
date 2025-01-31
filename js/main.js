@@ -153,8 +153,6 @@ jQuery(document).ready(function( $ ) {
 
 
 
-
-
 // popup форма для отправки заявки
 
 // popup
@@ -290,13 +288,21 @@ let openPopupButtons_receipt = document.querySelectorAll('.open-popup_receipt');
 let closePopupButton_receipt = document.querySelector('.close-popup_receipt');
 let closePopupButtonSubmit_receipt = document.querySelector('.close_through_submit_receipt');
 
-// Проверка на заполненность полей
+// Проверка на заполненность полей, включая файл
 function checkFormValidity_receipt() {
     let sendName_receipt = document.getElementById('sendName_receipt')?.value.trim() || "";
     let sendSecondName_receipt = document.getElementById('sendSecondName_receipt')?.value.trim() || "";
     let sendTel_receipt = document.getElementById('sendTel_receipt')?.value.trim() || "";
+    let sendEmail_receipt = document.getElementById('sendEmail_receipt')?.value.trim() || "";
+    let sendFile_receipt = document.getElementById('sendFile_receipt')?.files[0]; // Проверка файла
 
-    return sendName_receipt && sendSecondName_receipt && sendTel_receipt;
+    return (
+        sendName_receipt && 
+        sendSecondName_receipt && 
+        sendTel_receipt && 
+        sendEmail_receipt && 
+        sendFile_receipt // Проверяем наличие загруженного файла
+    );
 }
 
 // Проверяем, существуют ли элементы
@@ -340,6 +346,5 @@ if (closePopupButtonSubmit_receipt) {
         }
     });
 }
-
 
 

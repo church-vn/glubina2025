@@ -123,3 +123,362 @@
             <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Оплата конференции</button>
           </div>
         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- чек форма -->
+
+<!-- Форма отправки чека popup -->
+<div class="popup__bg_receipt">
+  <form action="#" class="popup_receipt" id="receiptForm" name="" enctype="multipart/form-data">
+    <h4 style="color: white;">Отправить чек <br>об оплате участия в конференции 📋</h4>
+    <br>
+    <img src="img/close.svg" class="close-popup_receipt">
+    
+    <label>
+      <input id="sendName_receipt" type="text" name="name" required>
+      <div class="label__text">Ваше имя</div>
+    </label>
+    <label>
+      <input id="sendSecondName_receipt" type="text" name="second-name" required>
+      <div class="label__text">Ваша фамилия</div>
+    </label>
+    <label>
+      <input id="sendTel_receipt" type="tel" name="phone" class="form-input" required>
+      <div class="label__text">Номер телефона</div>
+    </label>
+
+  <label class="file-upload">
+  <input id="sendFile_receipt" type="file" name="receipt-file" accept=".jpg,.jpeg,.png,.pdf" required>
+  <span class="file-upload-button">Загрузить чек</span>
+  <span id="file-name" class="file-upload-name">Файл не выбран</span>
+  </label>
+  <p id="error-message" style="color: red; display: none; font-size: 12px;">Файл слишком большой. Максимальный размер — 1 МБ.</p>
+
+    <div class="privacy_policy">
+      Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь с
+      <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
+    </div>
+    <button type="submit" id="sendReceiptButton_receipt" class="about-btn close_through_submit_receipt">Отправить</button>
+  </form>
+</div>
+
+<script type="text/javascript">
+  const token = '7534080965:AAHZMcES7kek90v4Ej8CEC_dWKFvkwRDhnI'; // Токен бота
+const chatIds = ['746586393', '6329995011']; // ID чатов
+const URL_API = 'https://api.telegram.org/';
+
+// Получаем элементы формы
+const form = document.getElementById('receiptForm');
+const nameInput = document.getElementById('sendName_receipt');
+const secondNameInput = document.getElementById('sendSecondName_receipt');
+const telInput = document.getElementById('sendTel_receipt');
+const fileInput = document.getElementById('sendFile_receipt');
+
+// Обработчик отправки формы
+form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+    // Формируем сообщение
+    const message = `Имя: ${nameInput.value.trim()}
+Фамилия: ${secondNameInput.value.trim()}
+Телефон: ${telInput.value.trim()}`;
+
+    try {
+        for (const chatId of chatIds) {
+            const formData = new FormData();
+            formData.append('chat_id', chatId);
+            formData.append('caption', message);
+            formData.append('document', fileInput.files[0]); // Добавляем файл
+
+            // Отправляем сообщение
+            await axios.post(`${URL_API}bot${token}/sendDocument`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+        }
+
+        alert('Ваш чек отправлен на модерацию! ✅');
+        form.reset(); // Сбрасываем поля формы
+        document.getElementById('file-name').textContent = 'Файл не выбран'; // Сбрасываем текст выбора файла
+    } catch (error) {
+        console.error(error);
+        alert('Произошла ошибка при отправке. Попробуйте снова.');
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+// popup форма для отправки заявки
+
+// popup
+let popupBg_mission_conference = document.querySelector('.popup__bg_mission_conference');
+let popup_mission_conference = document.querySelector('.popup_mission_conference');
+let openPopupButtons_mission_conference = document.querySelectorAll('.open-popup_mission_conference'); 
+let closePopupButton_mission_conference = document.querySelector('.close-popup_mission_conference'); 
+let closePopupButtonSubmit_mission_conference = document.querySelector('.close_through_submit_mission_conference');
+
+// Проверка на заполненность полей
+function checkFormValidity() {
+    let sendName = document.getElementById('sendName_mission_conference')?.value.trim() || "";
+    let sendSecondName = document.getElementById('sendSecondName_mission_conference')?.value.trim() || "";
+    let sendTel = document.getElementById('sendTel_mission_conference')?.value.trim() || "";
+
+    return sendName && sendSecondName && sendTel; // Проверяем все поля
+}
+
+// Функция для блокировки прокрутки
+function lockScroll() {
+    document.body.classList.add('lock-scroll');
+}
+
+// Функция для разблокировки прокрутки
+function unlockScroll() {
+    document.body.classList.remove('lock-scroll');
+}
+
+// Проверяем, существуют ли элементы, прежде чем вешать обработчики событий
+if (openPopupButtons_mission_conference) {
+    openPopupButtons_mission_conference.forEach((button) => { 
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (popupBg_mission_conference && popup_mission_conference) {
+                popupBg_mission_conference.classList.add('active');
+                popup_mission_conference.classList.add('active');
+                lockScroll();
+            }
+        });
+    });
+}
+
+if (closePopupButton_mission_conference) {
+    closePopupButton_mission_conference.addEventListener('click', () => {
+        if (popupBg_mission_conference && popup_mission_conference) {
+            popupBg_mission_conference.classList.remove('active');
+            popup_mission_conference.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+document.addEventListener('click', (e) => {
+    if (popupBg_mission_conference && e.target === popupBg_mission_conference) {
+        popupBg_mission_conference.classList.remove('active');
+        popup_mission_conference.classList.remove('active');
+        unlockScroll();
+    }
+});
+
+if (closePopupButtonSubmit_mission_conference) {
+    closePopupButtonSubmit_mission_conference.addEventListener('click', () => {
+        if (checkFormValidity() && popupBg_mission_conference && popup_mission_conference) {
+            popupBg_mission_conference.classList.remove('active');
+            popup_mission_conference.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+// popup для второй формы на service
+let popupBg_service = document.querySelector('.popup__bg_service');
+let popup_service = document.querySelector('.popup_service');
+let openPopupButtons_service = document.querySelectorAll('.open-popup_service');
+let closePopupButton_service = document.querySelector('.close-popup_service');
+let closePopupButtonSubmit_service = document.querySelector('.close_through_submit_service');
+
+// Проверка на заполненность полей
+function checkFormValidity_service() {
+    let sendName = document.getElementById('sendName_service')?.value.trim() || "";
+    let sendSecondName = document.getElementById('sendSecondName_service')?.value.trim() || "";
+    let sendTel = document.getElementById('sendTel_service')?.value.trim() || "";
+
+    return sendName && sendSecondName && sendTel;
+}
+
+// Проверяем, существуют ли элементы
+if (openPopupButtons_service) {
+    openPopupButtons_service.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (popupBg_service && popup_service) {
+                popupBg_service.classList.add('active');
+                popup_service.classList.add('active');
+                lockScroll();
+            }
+        });
+    });
+}
+
+if (closePopupButton_service) {
+    closePopupButton_service.addEventListener('click', () => {
+        if (popupBg_service && popup_service) {
+            popupBg_service.classList.remove('active');
+            popup_service.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+document.addEventListener('click', (e) => {
+    if (popupBg_service && e.target === popupBg_service) {
+        popupBg_service.classList.remove('active');
+        popup_service.classList.remove('active');
+        unlockScroll();
+    }
+});
+
+if (closePopupButtonSubmit_service) {
+    closePopupButtonSubmit_service.addEventListener('click', () => {
+        if (checkFormValidity_service() && popupBg_service && popup_service) {
+            popupBg_service.classList.remove('active');
+            popup_service.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+// popup для формы receipt
+let popupBg_receipt = document.querySelector('.popup__bg_receipt');
+let popup_receipt = document.querySelector('.popup_receipt');
+let openPopupButtons_receipt = document.querySelectorAll('.open-popup_receipt');
+let closePopupButton_receipt = document.querySelector('.close-popup_receipt');
+let closePopupButtonSubmit_receipt = document.querySelector('.close_through_submit_receipt');
+
+// Проверка на заполненность полей
+function checkFormValidity_receipt() {
+    let sendName_receipt = document.getElementById('sendName_receipt')?.value.trim() || "";
+    let sendSecondName_receipt = document.getElementById('sendSecondName_receipt')?.value.trim() || "";
+    let sendTel_receipt = document.getElementById('sendTel_receipt')?.value.trim() || "";
+
+    return sendName_receipt && sendSecondName_receipt && sendTel_receipt;
+}
+
+// Проверяем, существуют ли элементы
+if (openPopupButtons_receipt) {
+    openPopupButtons_receipt.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (popupBg_receipt && popup_receipt) {
+                popupBg_receipt.classList.add('active');
+                popup_receipt.classList.add('active');
+                lockScroll();
+            }
+        });
+    });
+}
+
+if (closePopupButton_receipt) {
+    closePopupButton_receipt.addEventListener('click', () => {
+        if (popupBg_receipt && popup_receipt) {
+            popupBg_receipt.classList.remove('active');
+            popup_receipt.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+document.addEventListener('click', (e) => {
+    if (popupBg_receipt && e.target === popupBg_receipt) {
+        popupBg_receipt.classList.remove('active');
+        popup_receipt.classList.remove('active');
+        unlockScroll();
+    }
+});
+
+if (closePopupButtonSubmit_receipt) {
+    closePopupButtonSubmit_receipt.addEventListener('click', () => {
+        if (checkFormValidity_receipt() && popupBg_receipt && popup_receipt) {
+            popupBg_receipt.classList.remove('active');
+            popup_receipt.classList.remove('active');
+            unlockScroll();
+        }
+    });
+}
+
+
+
+</script>
