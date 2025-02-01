@@ -337,3 +337,158 @@ template emailjs
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Форма регистрации popup -->
+<div class="popup__bg_mission_conference">
+  <form action="#" class="popup_mission_conference scrollable-form" id="registrationForm" name="submit-to-google-sheet">
+    <h4 style="color: white;">Регистрация <br>на конференцию 📋</h4>
+    <br>
+    <img src="img/close.svg" class="close-popup_mission_conference">
+    
+<label>
+  <input id="sendName_mission_conference" type="text" name="name" required>
+  <div class="label__text">Ваше имя</div>
+</label>
+
+<label>
+  <input id="sendSecondName_mission_conference" type="text" name="second-name" required>
+  <div class="label__text">Ваша фамилия</div>
+</label>
+
+<label>
+  <input id="sendTel_mission_conference" type="tel" name="phone" class="form-input" required>
+  <div class="label__text">Номер телефона</div>
+</label>
+
+<label>
+  <input id="sendCity_mission_conference" type="text" name="city" required>
+  <div class="label__text">Из какого вы города</div>
+</label>
+
+<label>
+  <input id="sendChurch_mission_conference" type="text" name="church" required>
+  <div class="label__text">Название вашей церкви</div>
+</label>
+
+<label>
+  <input id="sendPastorName_mission_conference" type="text" name="pastor-name" required>
+  <div class="label__text">ФИО пастора вашей церкви</div>
+</label>
+
+<label>
+  <input id="sendMinistry_mission_conference" type="text" name="ministry" required>
+  <div class="label__text">Ваше служение в церкви</div>
+</label>
+
+<label class="date-container">
+  <input id="arrivalDate_mission_conference" type="date" name="arrival-date" max="2025-12-31" value="2025-05-08" required>
+  <span class="calendar-icon" onclick="document.getElementById('arrivalDate_mission_conference').showPicker()"><img class="calendar-icon" src="img/calendar.svg"></span>
+  <div class="label__text">День приезда</div>
+</label>
+
+<label class="date-container">
+  <input id="departureDate_mission_conference" type="date" name="departure-date" max="2025-12-31" value="2025-05-10" required>
+  <span class="calendar-icon" onclick="document.getElementById('departureDate_mission_conference').showPicker()"><img class="calendar-icon" src="img/calendar.svg"></span>
+  <div class="label__text">День отъезда</div>
+</label>
+
+    
+ <div class="payment_info" style="color: white; font-size: 14px; line-height: 1.5;">
+  Регистрация считается завершённой только после предоставления чека 📄.<br><br>
+  Несмотря на необходимость оплаты и предоставления чека, пожалуйста, заполните эту форму регистрации полностью и нажмите на кнопку <b>“Регистрация”</b> 📋✔️. <br>Это поможет нам зафиксировать вашу заявку заранее и подготовить всё для вашего участия. 🙌✨<br><br>
+  
+  Чтобы завершить регистрацию: <br>
+  1️⃣ <b>Заполните эту форму регистрации полностью</b> 📝 и нажмите кнопку <b>“Регистрация”</b>.  
+  Это важно для предварительного закрепления вашего участия.<br><br>
+  
+  2️⃣ <b>Оплатите участие в конференции</b> 💳.<br>
+  Сделать это можно, перейдя по ссылке:<br>
+  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
+  
+  3️⃣ <b>После оплаты загрузите чек</b> 📤.<br>
+Загрузить и отправить чек можно на странице:<br>
+  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
+  
+  <small>После того, как вы совершили оплату и загрузили чек, повторно заполнять данную форму регистрации не нужно! ⛔️</small><br><br>
+  
+  После отправки чека вы получите письмо с подтверждением регистрации ✅ на <b>email, который вы указали в форме отправки чека</b> 📧. <br><br> 
+
+  Отправить чек необходимо до <b>25 апреля 2025 года</b> ⏳.<br><br>
+  
+  Спасибо за понимание и внимание к деталям! Мы с нетерпением ждём вас на конференции! 🙌✨
+</div>
+
+    <div class="privacy_policy">
+      Нажимая на кнопку "Регистрация", вы даете согласие на обработку персональных данных и соглашаетесь с
+      <a href="privacy.html" target="_blank"><u>политикой конфиденциальности</u></a>.
+    </div>
+    
+    <button type="submit" id="sendButton_mission_conference" class="about-btn close_through_submit_mission_conference">Регистрация</button>
+  </form>
+</div>
+
+
+<script>
+  document.getElementById('registrationForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Отмена стандартного действия формы
+
+    // Собираем данные из формы
+    const formData = {
+        name: document.getElementById('sendName_mission_conference').value,
+        secondName: document.getElementById('sendSecondName_mission_conference').value,
+        
+        // Очищаем номер телефона от всех символов, кроме цифр
+        phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, ''), // Убираем все нецифровые символы
+        
+        // Новые поля
+        city: document.getElementById('sendCity_mission_conference').value,
+        church: document.getElementById('sendChurch_mission_conference').value,
+        pastorName: document.getElementById('sendPastorName_mission_conference').value,
+        ministry: document.getElementById('sendMinistry_mission_conference').value,
+        arrivalDate: document.getElementById('arrivalDate_mission_conference').value,
+        departureDate: document.getElementById('departureDate_mission_conference').value
+    };
+
+    // URL вашего Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw3cELx4iweiZVBoVQz1oLroucgeqxBwB-Aade7NA9r7cuXKerU4hPDsG0hZ6AWfSsrPQ/exec';
+
+    // Отправка данных
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert('Регистрация прошла успешно! ✅');
+        document.getElementById('registrationForm').reset(); // Очистка формы
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Слабое соединение с интернетом ⚠️📶. Попробуйте позже ⏳🔄');
+    });
+  });
+</script>
+

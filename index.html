@@ -793,46 +793,73 @@
   </form>
 </div>
 
+<!-- Pop-up для успешной регистрации -->
+<div class="mainreg-popup-notification" id="mainregSuccessPopup">
+  <div class="mainreg-popup-content">
+    <p>Регистрация прошла успешно! ✅<br><br>  
+Остался последний шаг: пожалуйста, произведите оплату и отправьте чек. 💳📤  <br>
+После этого вы получите письмо с подтверждением регистрации на вашу электронную почту 📧✨</p>
+    <button class="mainreg-popup-close-btn" id="closeMainregSuccessPopup">Закрыть</button>
+  </div>
+</div>
+
+<!-- Pop-up для ошибки -->
+<div class="mainreg-popup-notification" id="mainregErrorPopup">
+  <div class="mainreg-popup-content">
+    <p>Слабое соединение с интернетом ⚠️📶. Попробуйте позже ⏳🔄</p>
+    <button class="mainreg-popup-close-btn" id="closeMainregErrorPopup">Закрыть</button>
+  </div>
+</div>
+
+
+
 
 <script>
-  document.getElementById('registrationForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Отмена стандартного действия формы
+ document.getElementById('registrationForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Отмена стандартного действия формы
 
-    // Собираем данные из формы
-    const formData = {
-        name: document.getElementById('sendName_mission_conference').value,
-        secondName: document.getElementById('sendSecondName_mission_conference').value,
-        
-        // Очищаем номер телефона от всех символов, кроме цифр
-        phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, ''), // Убираем все нецифровые символы
-        
-        // Новые поля
-        city: document.getElementById('sendCity_mission_conference').value,
-        church: document.getElementById('sendChurch_mission_conference').value,
-        pastorName: document.getElementById('sendPastorName_mission_conference').value,
-        ministry: document.getElementById('sendMinistry_mission_conference').value,
-        arrivalDate: document.getElementById('arrivalDate_mission_conference').value,
-        departureDate: document.getElementById('departureDate_mission_conference').value
-    };
+  const formData = {
+    name: document.getElementById('sendName_mission_conference').value,
+    secondName: document.getElementById('sendSecondName_mission_conference').value,
+    phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, ''),
+    city: document.getElementById('sendCity_mission_conference').value,
+    church: document.getElementById('sendChurch_mission_conference').value,
+    pastorName: document.getElementById('sendPastorName_mission_conference').value,
+    ministry: document.getElementById('sendMinistry_mission_conference').value,
+    arrivalDate: document.getElementById('arrivalDate_mission_conference').value,
+    departureDate: document.getElementById('departureDate_mission_conference').value
+  };
 
-    // URL вашего Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw3cELx4iweiZVBoVQz1oLroucgeqxBwB-Aade7NA9r7cuXKerU4hPDsG0hZ6AWfSsrPQ/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw3cELx4iweiZVBoVQz1oLroucgeqxBwB-Aade7NA9r7cuXKerU4hPDsG0hZ6AWfSsrPQ/exec';
 
-    // Отправка данных
-    fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert('Регистрация прошла успешно! ✅');
-        document.getElementById('registrationForm').reset(); // Очистка формы
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-        alert('Слабое соединение с интернетом ⚠️📶. Попробуйте позже ⏳🔄');
-    });
+  fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.text())
+  .then(data => {
+    showMainregPopup('mainregSuccessPopup');
+    document.getElementById('registrationForm').reset();
+  })
+  .catch(error => {
+    console.error('Ошибка:', error);
+    showMainregPopup('mainregErrorPopup');
   });
+});
+
+// Функция для показа pop-up
+function showMainregPopup(popupId) {
+  const popup = document.getElementById(popupId);
+  popup.style.display = 'block';
+
+  popup.querySelector('.mainreg-popup-close-btn').addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+
+  setTimeout(() => {
+    popup.style.display = 'none';
+  }, 15000);
+}
 </script>
 
 

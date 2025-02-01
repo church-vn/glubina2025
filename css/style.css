@@ -2606,3 +2606,39 @@ body.lock-scroll {
 .popup-close-btn:hover {
   background-color: #45a049;
 }
+
+
+/* Стили для уведомления (mainreg pop-up) */
+.mainreg-popup-notification {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 9999;
+  text-align: center;
+  width: 300px;
+}
+
+.mainreg-popup-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.mainreg-popup-close-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.mainreg-popup-close-btn:hover {
+  background-color: #45a049;
+}
