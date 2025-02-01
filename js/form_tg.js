@@ -35,11 +35,9 @@ Email: ${emailInput.value.trim()}`; // Добавлено поле Email
             });
         }
 
-        alert('Ваш чек отправлен на модерацию! ✅');
         form.reset(); // Сбрасываем поля формы
         document.getElementById('file-name').textContent = 'Файл не выбран'; // Сбрасываем текст выбора файла
     } catch (error) {
         console.error(error);
-        alert('Произошла ошибка при отправке. Попробуйте снова.');
     }
 });
