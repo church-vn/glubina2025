@@ -163,8 +163,7 @@
 
         </div>
 
-      </div>
-      <br>
+
    <!-- <div class="registration_buttons_tickets">
       <a href="" target="_blank" class="open-popup_receipt about-btn">Отправить чек</a>
       <a href="" target="_blank" class="open-popup_service about-btn">Хочу послужить на конференции</a>
@@ -356,57 +355,51 @@
 
 
   <!-- Template Main Javascript File -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/form_tg.js"></script>
   <script src="js/main.js"></script>
   
 
-  <script>
+  
+<!-- Подключение библиотеки EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Инициализация EmailJS
+  (function() {
+    emailjs.init("IXOvNqz-orTzVjuOd"); // Замените на ваш публичный ключ
+  })();
 
-(function () {
-    // Инициализация EmailJS
-    emailjs.init("IXOvNqz-orTzVjuOd");
+  document.getElementById("receiptForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Предотвращаем стандартную отправку формы
 
-    // Определение переменных формы
-    const form = document.getElementById('receiptForm');
-    const nameInput = document.getElementById('sendName_receipt');
-    const secondNameInput = document.getElementById('sendSecondName_receipt');
-    const telInput = document.getElementById('sendTel_receipt');
-    const emailInput = document.getElementById('sendEmail_receipt');
+    // Получение данных из формы
+    const name = document.getElementById("sendName_receipt").value;
+    const secondName = document.getElementById("sendSecondName_receipt").value;
+    const phone = document.getElementById("sendTel_receipt").value;
+    const email = document.getElementById("sendEmail_receipt").value;
 
-    // Обработчик отправки формы
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    // Параметры для шаблона EmailJS
+    const templateParams = {
+      user_name: name,
+      user_second_name: secondName,
+      user_phone: phone,
+      user_email: email, // Ключевой момент: этот email будет получателем
+    };
 
-        // Сбор данных из формы
-        const formData = {
-            name: nameInput.value.trim(),
-            secondName: secondNameInput.value.trim(),
-            tel: telInput.value.trim(),
-            email: emailInput.value.trim(), // Email пользователя
-        };
-
-        // Отправка через EmailJS
-        try {
-            await emailjs.send('service_lf7yvx3', 'template_xssceje', {
-                user_name: formData.name,
-                user_secondname: formData.secondName,
-                user_tel: formData.tel,
-                to_email: formData.email, // Письмо пойдет на email пользователя
-            });
-
-            alert('Письмо успешно отправлено!');
-            form.reset();
-        } catch (error) {
-            console.error('Ошибка отправки:', error);
-            alert('Произошла ошибка при отправке письма.');
-        }
-    });
-})();
+    // Отправка письма
+    emailjs.send("service_lf7yvx3", "template_kt6dvfq", templateParams)
+      .then(function(response) {
+        console.log("Письмо успешно отправлено!", response.status, response.text);
+        alert("Подтверждение о вашей регистрации отправлено вам на почту 📩✅");
+        document.getElementById("receiptForm").reset(); // Очистка формы
+      }, function(error) {
+        console.error("Ошибка при отправке письма:", error);
+        alert("Произошла ошибка. Пожалуйста, попробуйте снова.");
+      });
+  });
+</script>
 
 
-  </script>
   
 </body>
 
