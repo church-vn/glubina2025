@@ -150,9 +150,6 @@ jQuery(document).ready(function( $ ) {
 
 
 
-
-
-
 // popup форма для отправки заявки
 
 // popup
@@ -167,8 +164,22 @@ function checkFormValidity() {
     let sendName = document.getElementById('sendName_mission_conference')?.value.trim() || "";
     let sendSecondName = document.getElementById('sendSecondName_mission_conference')?.value.trim() || "";
     let sendTel = document.getElementById('sendTel_mission_conference')?.value.trim() || "";
+    let sendCity = document.getElementById('sendCity_mission_conference')?.value.trim() || "";
+    let sendChurch = document.getElementById('sendChurch_mission_conference')?.value.trim() || "";
+    let sendPastorName = document.getElementById('sendPastorName_mission_conference')?.value.trim() || "";
+    let sendRegion = document.getElementById('sendRegion_mission_conference')?.value.trim() || "";
+    let sendMinistry = document.getElementById('sendMinistry_mission_conference')?.value.trim() || "";
+    let sendArrivalDate = document.getElementById('arrivalDate_mission_conference')?.value.trim() || "";
+    let sendDepartureDate = document.getElementById('departureDate_mission_conference')?.value.trim() || "";
 
-    return sendName && sendSecondName && sendTel; // Проверяем все поля
+    // Проверка на заполненность кастомных полей (если они видимы)
+    let customRegionVisible = document.getElementById('customRegionField') && document.getElementById('customRegionField').style.display !== 'none';
+    let customMinistryVisible = document.getElementById('customMinistryField') && document.getElementById('customMinistryField').style.display !== 'none';
+    let customRegion = customRegionVisible ? document.getElementById('customRegionInput')?.value.trim() || "" : "";
+    let customMinistry = customMinistryVisible ? document.getElementById('customMinistryInput')?.value.trim() || "" : "";
+
+    // Проверяем, что все обязательные поля заполнены
+    return sendName && sendSecondName && sendTel && sendCity && sendChurch && sendPastorName && sendRegion && sendMinistry && sendArrivalDate && sendDepartureDate && (!customRegionVisible || customRegion) && (!customMinistryVisible || customMinistry);
 }
 
 // Функция для блокировки прокрутки
@@ -346,5 +357,3 @@ if (closePopupButtonSubmit_receipt) {
         }
     });
 }
-
-

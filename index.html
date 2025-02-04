@@ -65,29 +65,31 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5">
-            <h3 class="heading_main">Темы на конференции</h3>
-           <p>
-            <ul style="font-size: 14px;">
-              <li>Углубление отношений с Господом 🙏✨.</li>
-              <li>Построение отношений с воспитанниками 🤝🌱.</li>
-              <li>Эффективное взаимодействие с родителями 👨‍👩‍👧‍👦💬.</li>
-              <li>Сотрудничество и рост в отношениях с наставниками 🧑‍🏫🌟.</li>
-              <li>Единство между служениями 🤲🤍.</li>
-            </ul>
-          </p>
+            <h3 class="heading_main">Цели и темы конференции</h3>
+          <p>
+  <ul style="font-size: 14px;">
+    <li>Вспомнить откровения и благословения десятилетнего служения Глубины 🙏✨.</li>
+    <li>Рост и утверждение в своем призвании, и миссии в служении 🌱💪.</li>
+    <li>Вдохновение на труд служения детям и подросткам 👧👦✨.</li>
+    <li>Общение и взаимное служение друг другу, поддержка и помощь в трудные моменты 🤝🤗.</li>
+    <li>Обмен опытом и ресурсами для роста и развития в каждом из нас 📚💡.</li>
+    <li>Чувствовать "Плечо брата" — единство команд и взаимная поддержка в рамках СЗФО 🫶🌍.</li>
+  </ul>
+</p>
+
 
 
           </div>
-        <!--   <div class="col-lg-3">
+          <div class="col-lg-4">
             <h3 class="heading_main">Ключевой стих конференции</h3>
-            <p>Ключевой стих конференции Ключевой стих конференции Ключевой стих конференции Ключевой стих конференции Ключевой стих конференции <br>
-          Место писания место писания</p>
-          </div> -->
+            <p>«Благодарю давшего мне силу, Христа Иисуса, Господа нашего, что Он признал меня верным, определив на служение» <br>
+          1Тим.1:12</p>
+          </div>
          <div class="col-lg-3">
           <h3 class="heading_main">Дата / Время / <br>Место проведения конференции</h3>
           <p>🗓 8–10 мая 2025 г.<br>📍 Великий Новгород, <br>📌 ул. Новоселов, 6</p>
         </div>
-        <div class="col-lg-4">
+        <div style="margin-top: 30px;" class="col-lg-12 text-center">
           <h3 class="heading_main">*Стоимость участия</h3>
           <p>**Размер добровольного пожертвования: <b><u>3000₽</u></b><br>
             <small><sup>**</sup>Без учета питания</small></p>
@@ -736,6 +738,31 @@
   <div class="label__text">Номер телефона</div>
 </label>
 
+ <label>
+  <select id="sendRegion_mission_conference" name="region" required onchange="toggleCustomRegionField()">
+    <option value="" disabled selected>Выберите региональное объединение</option>
+    <option value="СЗО">СЗО</option>
+    <option value="Псков">Псков</option>
+    <option value="Карелия">Карелия</option>
+    <option value="Калининград">Калининград</option>
+    <option value="Новгород">Новгород</option>
+    <option value="АКХЦ">АКХЦ</option>
+    <option value="Архангельск">Архангельск</option>
+    <option value="Вологда">Вологда</option>
+    <option value="Череповец">Череповец</option>
+    <option value="КОМИ Кудров">КОМИ Кудров</option>
+    <option value="КОМИ Величко">КОМИ Величко</option>
+    <option value="Церковь на Мурмане">Церковь на Мурмане</option>
+    <option value="Другое">Другое</option>
+  </select>
+  <div class="label__text">Региональное объединение</div>
+</label>
+
+<label id="customRegionField" style="display: none;">
+  <input type="text" id="customRegionInput" name="custom-region">
+  <div class="label__text">Введите ваш регион</div>
+</label>
+
 <label>
   <input id="sendCity_mission_conference" type="text" name="city" required>
   <div class="label__text">Из какого вы города</div>
@@ -752,9 +779,21 @@
 </label>
 
 <label>
-  <input id="sendMinistry_mission_conference" type="text" name="ministry" required>
+  <select id="sendMinistry_mission_conference" type="text" name="ministry" required onchange="toggleCustomMinistryField()">
+    <option value="" disabled selected>Выберите ваше служение</option>
+    <option value="Дошкольники">Дошкольники</option>
+    <option value="Школьники">Школьники</option>
+    <option value="Подростки">Подростки</option>
+    <option value="Другое">Другое</option>
+  </select> 
   <div class="label__text">Ваше служение в церкви</div>
 </label>
+
+<label id="customMinistryField" style="display: none;">
+  <input type="text" id="customMinistryInput" name="custom-ministry">
+  <div class="label__text">Введите ваше служение</div>
+</label>
+
 
 <label class="date-container">
   <input id="arrivalDate_mission_conference" type="date" name="arrival-date" max="2025-12-31" value="2025-05-08" required>
@@ -773,7 +812,7 @@
   Регистрация считается завершённой только после предоставления чека 📄.<br><br>
   Несмотря на необходимость оплаты и предоставления чека, пожалуйста, заполните эту форму регистрации полностью и нажмите на кнопку <b>“Регистрация”</b> 📋✔️. <br>Это поможет нам зафиксировать вашу заявку заранее и подготовить всё для вашего участия. 🙌✨<br><br>
   
-  Чтобы завершить регистрацию: <br>
+  Итак, чтобы завершить регистрацию: <br>
   1️⃣ <b>Заполните эту форму регистрации полностью</b> 📝 и нажмите кнопку <b>“Регистрация”</b>.  
   Это важно для предварительного закрепления вашего участия.<br><br>
   
@@ -782,14 +821,14 @@
   <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
   
   3️⃣ <b>После оплаты загрузите чек</b> 📤.<br>
-Загрузить и отправить чек можно на странице:<br>
-  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">ОПЛАТА (откроется в новой вкладке)</a>.<br><br>
+Загрузить и отправить чек можно на странице оплаты:<br>
+  <a href="buy-ticket.html" target="_blank" style="text-decoration: underline; font-weight: bold;">Оплата/загрузка чека</a>.<br><br>
   
   <small>После того, как вы совершили оплату и загрузили чек, повторно заполнять данную форму регистрации не нужно! ⛔️</small><br><br>
   
   После отправки чека вы получите письмо с подтверждением регистрации ✅ на <b>email, который вы указали в форме отправки чека</b> 📧. <br><br> 
 
-  Отправить чек необходимо до <b>25 апреля 2025 года</b> ⏳.<br><br>
+  Оплатить участие в конференции и отправить чек необходимо до <b>10 апреля 2025 года</b> ⏳.<br><br>
   
   Спасибо за понимание и внимание к деталям! Мы с нетерпением ждём вас на конференции! 🙌✨
 </div>
@@ -804,7 +843,7 @@
 </div>
 
 <!-- Pop-up для успешной регистрации -->
-<div class="mainreg-popup-notification" id="mainregSuccessPopup">
+<div style="z-index:99999;" class="mainreg-popup-notification" id="mainregSuccessPopup">
   <div class="mainreg-popup-content">
     <p>Регистрация прошла успешно! ✅<br><br>  
 Остался последний шаг: пожалуйста, произведите оплату и отправьте чек. 💳📤  <br>
@@ -814,7 +853,7 @@
 </div>
 
 <!-- Pop-up для ошибки -->
-<div class="mainreg-popup-notification" id="mainregErrorPopup">
+<div style="z-index:99999;" class="mainreg-popup-notification" id="mainregErrorPopup">
   <div class="mainreg-popup-content">
     <p>Слабое соединение с интернетом ⚠️📶. Попробуйте позже ⏳🔄</p>
     <button class="mainreg-popup-close-btn" id="closeMainregErrorPopup">Закрыть</button>
@@ -825,51 +864,73 @@
 
 
 <script>
- document.getElementById('registrationForm').addEventListener('submit', function (event) {
-  event.preventDefault(); // Отмена стандартного действия формы
+   document.getElementById('registrationForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Отмена стандартного действия формы
 
-  const formData = {
-    name: document.getElementById('sendName_mission_conference').value,
-    secondName: document.getElementById('sendSecondName_mission_conference').value,
-    phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, ''),
-    city: document.getElementById('sendCity_mission_conference').value,
-    church: document.getElementById('sendChurch_mission_conference').value,
-    pastorName: document.getElementById('sendPastorName_mission_conference').value,
-    ministry: document.getElementById('sendMinistry_mission_conference').value,
-    arrivalDate: document.getElementById('arrivalDate_mission_conference').value,
-    departureDate: document.getElementById('departureDate_mission_conference').value
-  };
+    // Сначала собираем все обычные данные
+    const formData = {
+       name: document.getElementById('sendName_mission_conference').value,
+       secondName: document.getElementById('sendSecondName_mission_conference').value,
+       phone: document.getElementById('sendTel_mission_conference').value.replace(/\D/g, ''),
+       city: document.getElementById('sendCity_mission_conference').value,
+       church: document.getElementById('sendChurch_mission_conference').value,
+       pastorName: document.getElementById('sendPastorName_mission_conference').value,
+       ministry: document.getElementById('sendMinistry_mission_conference').value,
+       arrivalDate: document.getElementById('arrivalDate_mission_conference').value,
+       departureDate: document.getElementById('departureDate_mission_conference').value,
+       region: document.getElementById('sendRegion_mission_conference').value,
+       customRegion: document.getElementById('customRegionInput').value, // Пользовательский регион
+       customMinistry: document.getElementById('customMinistryInput').value // Пользовательское служение
+    };
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbw3cELx4iweiZVBoVQz1oLroucgeqxBwB-Aade7NA9r7cuXKerU4hPDsG0hZ6AWfSsrPQ/exec';
+    // Если выбрано "Другое" для региона, добавляем значение из customRegionInput
+    if (document.getElementById('sendRegion_mission_conference').value === 'Другое') {
+      formData.region = document.getElementById('customRegionInput').value;
+    } else {
+      formData.region = document.getElementById('sendRegion_mission_conference').value;
+    }
 
-  fetch(scriptURL, {
-    method: 'POST',
-    body: JSON.stringify(formData)
-  })
-  .then(response => response.text())
-  .then(data => {
-    showMainregPopup('mainregSuccessPopup');
-    document.getElementById('registrationForm').reset();
-  })
-  .catch(error => {
-    console.error('Ошибка:', error);
-    showMainregPopup('mainregErrorPopup');
+    // Если выбрано "Другое" для служения, добавляем значение из customMinistryInput
+    if (document.getElementById('sendMinistry_mission_conference').value === 'Другое') {
+      formData.ministry = document.getElementById('customMinistryInput').value;
+    } else {
+      formData.ministry = document.getElementById('sendMinistry_mission_conference').value;
+    }
+
+    // URL для отправки данных в Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxbc8fSoBFB-t5XhxW9EUERCU2cMcTJgq22RrauNIlqRjK5LdMZqVcAqpGgFV0Bv9JoVA/exec';
+
+    console.log(formData); // Добавьте логирование для проверки отправляемых данных
+
+    // Отправка данных
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+      showMainregPopup('mainregSuccessPopup');
+      document.getElementById('registrationForm').reset(); // Сброс формы после отправки
+    })
+    .catch(error => {
+      console.error('Ошибка:', error);
+      showMainregPopup('mainregErrorPopup');
+    });
   });
-});
 
-// Функция для показа pop-up
-function showMainregPopup(popupId) {
-  const popup = document.getElementById(popupId);
-  popup.style.display = 'block';
+  // Функция для показа pop-up
+  function showMainregPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    popup.style.display = 'block';
 
-  popup.querySelector('.mainreg-popup-close-btn').addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
+    popup.querySelector('.mainreg-popup-close-btn').addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
 
-  setTimeout(() => {
-    popup.style.display = 'none';
-  }, 15000);
-}
+    setTimeout(() => {
+      popup.style.display = 'none';
+    }, 15000);
+  }
 </script>
 
 
@@ -951,7 +1012,7 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
 
 
 <small style="font-size: 12px; display: block; margin-top: 20px; color: #555;">
-* Под формулировкой «стоимость участия» понимается добровольное пожертвование, передача которого осуществляется исключительно на добровольной основе в соответствии с Пользовательским соглашением и действующим законодательством Российской Федерации. Пожертвования направляются на организацию и проведение конференции.
+* Под формулировкой «стоимость участия», «Оплата» и прочее понимается добровольное пожертвование, передача которого осуществляется исключительно на добровольной основе в соответствии с Пользовательским соглашением и действующим законодательством Российской Федерации. Пожертвования направляются на организацию и проведение конференции.
 </small>
 
 
@@ -1120,6 +1181,44 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
       });
 
     </script>
+
+    <!-- Выбрать свой регион -->
+   <script>
+  // Функция для показа/скрытия поля для ввода региона
+  function toggleCustomRegionField() {
+    const selectElement = document.getElementById('sendRegion_mission_conference');
+    const customRegionField = document.getElementById('customRegionField');
+    const customRegionInput = document.getElementById('customRegionInput');
+
+    // Проверяем, выбрана ли опция "Другое"
+    if (selectElement.value === 'Другое') {
+      customRegionField.style.display = 'flex'; // Показываем поле
+      customRegionInput.required = true; // Делаем поле обязательным
+    } else {
+      customRegionField.style.display = 'none'; // Скрываем поле
+      customRegionInput.value = ''; // Очищаем поле при смене опции
+      customRegionInput.required = false; // Снимаем обязательность
+    }
+  }
+
+  // Функция для показа/скрытия поля для ввода служения
+  function toggleCustomMinistryField() {
+    const selectElement = document.getElementById('sendMinistry_mission_conference');
+    const customMinistryField = document.getElementById('customMinistryField');
+    const customMinistryInput = document.getElementById('customMinistryInput');
+
+    // Проверяем, выбрана ли опция "Другое"
+    if (selectElement.value === 'Другое') {
+      customMinistryField.style.display = 'flex'; // Показываем поле
+      customMinistryInput.required = true; // Делаем поле обязательным
+    } else {
+      customMinistryField.style.display = 'none'; // Скрываем поле
+      customMinistryInput.value = ''; // Очищаем поле при смене опции
+      customMinistryInput.required = false; // Снимаем обязательность
+    }
+  }
+</script>
+
 
 
 
