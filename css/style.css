@@ -2689,3 +2689,111 @@ body.lock-scroll {
     background-color: #00bcd4;
     color: #fff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Общие стили для плиток */
+.host {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px; /* Округленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Исходная тень для плитки */
+  position: relative; /* Для анимации */
+  animation: shadow-animation 3s ease-in-out infinite; /* Анимация тени */
+  transition: all 0.3s ease; /* Плавное изменение для других эффектов */
+}
+
+/* Плавное изменение тени */
+@keyframes shadow-animation {
+  0% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.5); /* Цветная тень */
+  }
+  100% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Задержка и длительность анимации для разного пульсирования */
+.host:nth-child(1) {
+  animation-delay: 0s;
+  animation-duration: 3.5s;
+}
+
+.host:nth-child(2) {
+  animation-delay: 0.5s;
+  animation-duration: 3s;
+}
+
+.host:nth-child(3) {
+  animation-delay: 1s;
+  animation-duration: 3.8s;
+}
+
+.host:nth-child(4) {
+  animation-delay: 0.2s;
+  animation-duration: 3.2s;
+}
+
+.host:nth-child(5) {
+  animation-delay: 1.5s;
+  animation-duration: 4s;
+}
+
+.host:nth-child(6) {
+  animation-delay: 0.8s;
+  animation-duration: 3.6s;
+}
+
+/* Стили для содержимого плитки */
+.host-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.host-content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 767px) {
+  .host {
+    padding: 15px;
+  }
+
+  .host-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .host-content p {
+    font-size: 0.9rem;
+  }
+}
+
