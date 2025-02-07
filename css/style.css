@@ -2696,6 +2696,99 @@ body.lock-scroll {
 
 
 
+
+
+
+/* новые спикеры стили */
+ /* Стили секции спикеров */
+    .speakers-section {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .speakers-header {
+      margin-bottom: 40px;
+    }
+
+    .speakers-header h2 {
+      font-size: 2.5rem;
+      color: #333;
+      font-weight: 700;
+    }
+
+    .speakers-header p {
+      font-size: 1.1rem;
+      color: #777;
+    }
+
+    /* Стили карточки спикера */
+    .speaker-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      margin-bottom: 30px;
+    }
+
+    .speaker-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+    }
+
+    /* Стили изображения */
+    .speaker-image img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Блок с описанием */
+    .speaker-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .speaker-info h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .speaker-info p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Адаптация для мобильных */
+    @media (max-width: 767px) {
+      .speaker-info h3 {
+        font-size: 1.2rem;
+      }
+
+      .speaker-info p {
+        font-size: 0.9rem;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Stream Hosts Section */
 /* Общие стили для плиток */
 .host {
@@ -2806,178 +2899,4 @@ body.lock-scroll {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Стили для секции спикеров */
-#speakers {
-  padding: 60px 0;
-}
-
-.section-header {
-  margin-bottom: 40px;
-}
-
-.section-header h2 {
-  font-size: 2.5rem;
-  color: #333;
-  font-weight: 700;
-}
-
-.section-header p {
-  font-size: 1.1rem;
-  color: #777;
-}
-
-/* Стили для каждой карточки спикера */
-.speaker {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
-}
-
-.speaker:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Стили изображения */
-.speaker img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.speaker:hover img {
-  transform: scale(1.05);
-}
-
-/* Стили для текста и описания */
-.speaker .details {
-  padding: 20px;
-}
-
-.speaker .details h3 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.speaker .details p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 767px) {
-  .speaker .details h3 {
-    font-size: 1.2rem;
-  }
-
-  .speaker .details p {
-    font-size: 0.9rem;
-  }
-}
-
-
-/* новые спикеры стили */
- /* Стили секции спикеров */
-    .speakers-section {
-      padding: 60px 0;
-      text-align: center;
-    }
-
-    .speakers-header {
-      margin-bottom: 40px;
-    }
-
-    .speakers-header h2 {
-      font-size: 2.5rem;
-      color: #333;
-      font-weight: 700;
-    }
-
-    .speakers-header p {
-      font-size: 1.1rem;
-      color: #777;
-    }
-
-    /* Стили карточки спикера */
-    .speaker-card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      margin-bottom: 30px;
-    }
-
-    .speaker-card:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      transform: translateY(-5px);
-    }
-
-    /* Стили изображения */
-    .speaker-image img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Блок с описанием */
-    .speaker-info {
-      padding: 20px;
-      text-align: center;
-    }
-
-    .speaker-info h3 {
-      font-size: 1.4rem;
-      color: #333;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    .speaker-info p {
-      font-size: 1rem;
-      color: #555;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* Адаптация для мобильных */
-    @media (max-width: 767px) {
-      .speaker-info h3 {
-        font-size: 1.2rem;
-      }
-
-      .speaker-info p {
-        font-size: 0.9rem;
-      }
-    }
 
