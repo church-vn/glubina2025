@@ -2800,7 +2800,7 @@ body.lock-scroll {
   position: relative; /* Для анимации */
   animation: shadow-animation 3s ease-in-out infinite; /* Анимация тени */
   transition: all 0.3s ease; /* Плавное изменение для других эффектов */
-  height: 200px; /* Фиксированная высота карточек */
+  height: 150px; /* Фиксированная высота карточек */
   display: flex;
   flex-direction: column; /* Элементы внутри карточки будут располагаться вертикально */
   justify-content: space-between; /* Равномерное распределение пространства */
