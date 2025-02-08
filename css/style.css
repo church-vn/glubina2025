@@ -470,7 +470,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 @media screen and (max-width: 768px) {
   #intro {
-    height: 890px !important;
+    height: 960px !important;
   }
 }
 #intro:before {
@@ -2905,3 +2905,24 @@ body.lock-scroll {
 
 
 
+
+
+
+
+
+
+
+/* стих цитата header */
+  /* Для мобильных устройств */
+  @media (max-width: 767px) {
+    blockquote {
+      font-size: 14px !important;
+    }
+  }
+
+  /* Для устройств с шириной экрана больше 768px (ПК) */
+  @media (min-width: 768px) {
+    blockquote {
+      font-size: 16px !important;
+    }
+  }
