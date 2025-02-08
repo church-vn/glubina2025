@@ -2850,6 +2850,11 @@ body.lock-scroll {
   animation-duration: 3.6s;
 }
 
+.host:nth-child(7) {
+  animation-delay: 0.8s;
+  animation-duration: 3.6s;
+}
+
 /* Стили для содержимого плитки */
 .host-content {
   flex-grow: 1; /* Позволяет блоку контента заполнять всё доступное пространство */
