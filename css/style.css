@@ -2914,15 +2914,65 @@ body.lock-scroll {
 
 /* стих цитата header */
   /* Для мобильных устройств */
-  @media (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     blockquote {
       font-size: 14px !important;
     }
   }
 
   /* Для устройств с шириной экрана больше 768px (ПК) */
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     blockquote {
       font-size: 16px !important;
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Стили для обратного отсчета */
+    .countdown-wrapper {
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      color: #fff;
+      position: relative !important;
+      margin: 0 auto !important;
+    }
+
+    .countdown-wrapper h2 {
+      color: white !important;
+    }
+
+    #countdown {
+      font-size: 36px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    #countdown span {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 30px;
+    }
+    @media screen and (max-width: 576px) {
+      .countdown-wrapper, #countdown {
+        display: flex;
+        flex-direction: column;
+      }
+      .countdown-wrapper h2 {
+        align-self: center;
+      }
+    }

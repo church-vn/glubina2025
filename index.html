@@ -240,7 +240,7 @@
           <div class="host-content">
             <h3>Владимир и Ирина Воробьевы</h3>
             <p>Г. Никель<br>
-            Галерея Идей.</p>
+            Сокровищница Идей.</p>
           </div>
         </div>
       </div>
@@ -296,6 +296,28 @@
             <h3>Алла Васечкина</h3>
             <p>Г. Череповец<br>
             Молитвенный вечер.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Ведущий 8 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="host">
+          <div class="host-content">
+            <h3>Елена Соколова, Жанна Пыстина</h3>
+            <p>Республика Коми<br>
+            Зал Божьей славы.</p>
+          </div>
+        </div>
+      </div>
+
+       <!-- Ведущий 9 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="host">
+          <div class="host-content">
+            <h3>Олег и Елена Колодезниковы</h3>
+            <p>Г. Великий Новгород<br>
+            Открытие и закрытие конференции.</p>
           </div>
         </div>
       </div>
@@ -758,7 +780,12 @@
             <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Пожертвования / Чек</button>
             <!-- <button class="button_buy_ticket" type="submit" onclick="location.href='buy-ticket.html'">Отправить чек</button> -->
           </div>
+          <div class="countdown-wrapper">
+          <h2 class="h2_for_mobile">До начала конференции осталось:</h2>
+            <div id="countdown"></div>
+          </div>
         </section>
+
 
 
 
@@ -1344,7 +1371,37 @@ document.getElementById('serviceForm').addEventListener('submit', function (even
 </script>
 
 
+<!-- count conference -->
+ <script>
+    // Устанавливаем дату и время начала конференции
+    const conferenceDate = new Date("May 8, 2025 15:00:00").getTime();
 
+    // Обновляем таймер каждую секунду
+    const countdownFunction = setInterval(function() {
+
+      // Получаем текущую дату и время
+      const now = new Date().getTime();
+
+      // Находим разницу между текущим временем и временем начала конференции
+      const distance = conferenceDate - now;
+
+      // Вычисляем время оставшееся для конференции
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Отображаем результаты на странице
+      document.getElementById("countdown").innerHTML =
+        `<span>${days}д</span> <span>${hours}ч</span> <span>${minutes}м</span> <span>${seconds}с</span>`;
+
+      // Если время истекло, показываем сообщение
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "Конференция началась!";
+      }
+    }, 1000);
+  </script>
 
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
